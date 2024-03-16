@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: rgb(247, 247, 247);
+}
+h1,h2,h3,h4,h5 {
+    color: rgb(30, 47, 90);
+}
+.nodecor {
+    text-decoration: none;
+}
+.inherit {
+    color: inherit;
+}
+.mainblue {
+    color: rgb(30, 47, 90);
+}
+.noselect {
+    user-select: none;
+}
+.form-control {
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid rgb(30, 47, 90, 0.6);
+}
+.form-check {
+    margin-top: 10px;
+}
+.form-check-input:focus {
+    box-shadow: none;
+    border: 1px solid rgb(30, 47, 90, 0.6);
+}
+.boxSection {
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 7px;
+    border: 1px solid rgb(30, 47, 90, 0.1);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.113);
+    margin-bottom: 30px;
+}
+.clickToCopyBox {
+    margin-top: 35px;
+}
+.my-btn {
+    color: rgb(30, 47, 90);
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 5px 15px;
+    border: 2px solid rgb(30, 47, 90);
+    cursor: pointer;
+    text-decoration: none;
+}
+.copy-response {
+    border-radius: 5px;
+    padding: 3px 15px;
+    border: 2px solid transparent;
+    cursor: default;
+}
+.noselect, .form-check-input {
+    cursor: pointer;
+}
+.signature {
+    box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.12);
+}
+.container-fluid {
+    padding: 0px 40px;
+}
