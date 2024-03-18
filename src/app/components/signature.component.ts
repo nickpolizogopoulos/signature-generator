@@ -24,12 +24,12 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                         <div class="row">
                             <div class="col-xl-4">
                                 <input (input)="onUpdateName($event)" type="text" class="form-control" placeholder="Name">
+                                <input (input)="onUpdateSurname($event)"  type="text" class="form-control" placeholder="Surname">
                                 <input (input)="onUpdateTitle($event)" type="text" class="form-control" placeholder="Title">
-                                <input (input)="onUpdateEmail($event)" type="text" class="form-control" placeholder="Email">
                                 <input (input)="onUpdateLogoUrl($event)" type="text" class="form-control" placeholder="Logo url">
                             </div>
                             <div class="col-xl-4">
-                                <input (input)="onUpdateSurname($event)"  type="text" class="form-control" placeholder="Surname">
+                                <input (input)="onUpdateEmail($event)" type="text" class="form-control" placeholder="Email">
                                 <input (input)="onUpdatePhone($event)" type="text" class="form-control" placeholder="Phone">
                                 <input (input)="onUpdateLocation($event)" type="text" class="form-control" placeholder="Location">
                             </div>
@@ -101,8 +101,9 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                     </section>
 
                     <section *ngIf="website || facebook || instagram || linkedin || github || twitter || reddit || threads" class="boxSection">
-                        <h4 class="mb-3">Paste your social media links below</h4>
-                        <div class="row">
+                        <h4>Paste your social media links below</h4>
+                        <small>[ In case you write any links by hand, <u>make sure you include "https://" infront of them</u> - e.g. <strong>https://</strong>google.com or <strong>https://</strong>www.google.com ]</small>
+                        <div class="row mt-3">
                             <div class="col-xl-5">
                                 <input *ngIf="website" [(ngModel)]="websiteLink" type="text" class="form-control" placeholder="Website">
                                 <input *ngIf="facebook" [(ngModel)]="facebookLink" type="text" class="form-control" placeholder="Facebook">
@@ -143,64 +144,75 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                                     <label class="noselect" for="underlineTitle"><u>Underline</u> Title</label>
                                 </div>
                             </div>
+                            <div class="col-lg-2 col-xxl-2">
+                                <div class="form-check">
+                                    <input [(ngModel)]="lineAfterName" class="form-check-input" type="checkbox" id="line">
+                                    <label class="noselect" for="line">Horizontal line after name</label>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
                     <section class="boxSection">
                         <h4 class="mb-4">Your Signature</h4>
-                        <!-- <table #signature cellspacing="0" cellpadding="4" style="background-color: rgb(199, 199, 199); font-family: 'Montserrat', sans-serif; line-height: 1.3;"> -->
-                            <table #signature cellspacing="0" cellpadding="4" style="background-color: white; font-family: 'Montserrat', sans-serif; line-height: 1.3;" class="signature">
+                        <table #signature cellspacing="0" cellpadding="4" style="background-color: white; font-family: 'Montserrat', sans-serif; line-height: 1.3;" class="signature">
                             <tbody>
-                                <!-- * FIRST ROW, [LOGO] [EMPTY] [NAME] --> 
                                 <tr style="background-color: transparent">
                                     <td style="vertical-align: top;"><img width="140" height="auto" src="{{logoUrl}}" alt="{{logoUrl ? 'logo' : 'Your logo'}}"></td>
-                                    <td></td> 
-                                    <td>
+                                    <td></td>
+                                    <td style="vertical-align: top;">
                                         <table cellspacing="0" cellpadding="2">
                                             <tbody>
-                                                <tr><td style="font-size: 17px;"><strong>{{name}} {{surname}}</strong></td></tr>
-                                                <tr><td style="font-size: 12px;">{{title}}</td></tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- * SECOND ROW, [EMPTY] [EMPTY] [INFO] -->
-                                <tr style="background-color: transparent"> 
-                                    <td></td>
-                                    <td></td> 
-                                    <td>
-                                        <table cellspacing="0" cellpadding="2" style="font-size: 12px;">
-                                            <tbody>
-                                                <tr><td><span><strong>Tel.: </strong></span><span style="text-decoration:none; color: black;">{{phone}}</span></td></tr>
-                                                <tr><td><span><strong>Email: </strong></span><a style="text-decoration:none; color: black;" href = "mailto:{{email}}">{{email}}</a></td></tr>
-                                                <tr><td>{{location}}</td></tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- *THIRD ROW, [EMPTY] [EMPTY] [SOCIAL ICONS] -->
-                                <tr style="background-color: transparent">
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <table>
-                                            <tbody>
-                                                <tr >
-                                                    <td *ngIf="website"><a href="{{websiteLink}}"><img width="21" height="auto" src="../assets/social/web-logo.png" alt="website icon"></a></td>
-                                                    <td *ngIf="website" width="7"></td> 
-                                                    <td *ngIf="facebook"><a href="{{facebookLink}}"><img width="21" height="auto" src="../assets/social/facebook-logo.png" alt="linkedin icon"></a></td>
-                                                    <td *ngIf="facebook" width="7"></td>
-                                                    <td *ngIf="instagram"><a href="{{instagramLink}}"><img width="21" height="auto" src="../assets/social/instagram-logo.png" alt="instagram icon"></a></td>
-                                                    <td *ngIf="instagram" width="7"></td>
-                                                    <td *ngIf="linkedin"><a href="{{linkedinLink}}"><img width="21" height="auto" src="../assets/social/linkedin-logo.png" alt="linkedin icon"></a></td>
-                                                    <td *ngIf="linkedin" width="7"></td>
-                                                    <td *ngIf="github"><a href="{{githubLink}}"><img width="21" height="auto" src="../assets/social/github-logo.png" alt="github icon"></a></td>
-                                                    <td *ngIf="github" width="7"></td>
-                                                    <td *ngIf="twitter"><a href="{{twitterLink}}"><img width="21" height="auto" src="../assets/social/x-logo.png" alt="x icon"></a></td>
-                                                    <td *ngIf="twitter" width="7"></td>
-                                                    <td *ngIf="reddit"><a href="{{redditLink}}"><img width="21" height="auto" src="../assets/social/reddit-logo.png" alt="reddit icon"></a></td>
-                                                    <td *ngIf="reddit" width="7"></td>
-                                                    <td *ngIf="threads"><a href="{{threadsLink}}"><img width="21" height="auto" src="../assets/social/threads-logo.png" alt="reddit icon"></a></td>
+                                                <tr>
+                                                    <td style="font-size: 17px;">
+                                                        <span *ngIf="!boldName && !underlineName">{{name}} {{surname}}</span>
+                                                        <strong *ngIf="boldName && !underlineName">{{name}} {{surname}}</strong>
+                                                        <u *ngIf="!boldName && underlineName">{{name}} {{surname}}</u>
+                                                        <strong *ngIf="boldName && underlineName"><u>{{name}} {{surname}}</u></strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 12px;">
+                                                        <span *ngIf="!boldTitle && !underlineTitle">{{title}}</span>
+                                                        <strong *ngIf="boldTitle && !underlineTitle">{{title}}</strong>
+                                                        <u *ngIf="!boldTitle && underlineTitle">{{title}}</u>
+                                                        <strong *ngIf="boldTitle && underlineTitle"><u>{{title}}</u></strong>
+                                                        <hr *ngIf="lineAfterName">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 12px;">
+                                                        <table cellspacing="0" cellpadding="2" style="font-size: 12px;">
+                                                            <tbody>
+                                                                <tr><td><span><strong>Tel.: </strong></span><span style="text-decoration:none; color: black;">{{phone}}</span></td></tr>
+                                                                <tr><td><span><strong>Email: </strong></span><a style="text-decoration:none; color: black;" href = "mailto:{{email}}">{{email}}</a></td></tr>
+                                                                <tr><td>{{location}}</td></tr>
+                                                                <tr>
+                                                                    <table>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td *ngIf="websiteLink"><a href="{{websiteLink}}"><img width="21" height="auto" src="../assets/social/web-logo.png" alt="website icon"></a></td>
+                                                                                <td *ngIf="website" width="7"></td> 
+                                                                                <td *ngIf="facebook"><a href="{{facebookLink}}"><img width="21" height="auto" src="../assets/social/facebook-logo.png" alt="linkedin icon"></a></td>
+                                                                                <td *ngIf="facebook" width="7"></td>
+                                                                                <td *ngIf="instagram"><a href="{{instagramLink}}"><img width="21" height="auto" src="../assets/social/instagram-logo.png" alt="instagram icon"></a></td>
+                                                                                <td *ngIf="instagram" width="7"></td>
+                                                                                <td *ngIf="linkedin"><a href="{{linkedinLink}}"><img width="21" height="auto" src="../assets/social/linkedin-logo.png" alt="linkedin icon"></a></td>
+                                                                                <td *ngIf="linkedin" width="7"></td>
+                                                                                <td *ngIf="github"><a href="{{githubLink}}"><img width="21" height="auto" src="../assets/social/github-logo.png" alt="github icon"></a></td>
+                                                                                <td *ngIf="github" width="7"></td>
+                                                                                <td *ngIf="twitter"><a href="{{twitterLink}}"><img width="21" height="auto" src="../assets/social/x-logo.png" alt="x icon"></a></td>
+                                                                                <td *ngIf="twitter" width="7"></td>
+                                                                                <td *ngIf="reddit"><a href="{{redditLink}}"><img width="21" height="auto" src="../assets/social/reddit-logo.png" alt="reddit icon"></a></td>
+                                                                                <td *ngIf="reddit" width="7"></td>
+                                                                                <td *ngIf="threads"><a href="{{threadsLink}}"><img width="21" height="auto" src="../assets/social/threads-logo.png" alt="reddit icon"></a></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -224,11 +236,9 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 })
 export class SignatureComponent {
 
-    copyResponse:boolean = false;
-
     name:string = 'Name';
     surname:string = 'Surname';
-    title:string = 'Software Developer';
+    title:string = 'Job title';
     phone:string = '0000 000 000';
     email:string = 'email@email.com';
     location:string = 'Street, City, Country';
@@ -257,8 +267,10 @@ export class SignatureComponent {
     boldTitle:boolean = false;
     underlineName:boolean = false;
     underlineTitle:boolean = false;
+    lineAfterName:boolean = false;
 
     spinnerLoading:boolean = false;
+    copyResponse:boolean = false;
 
     onUpdateName( event:Event ):void {
         this.name = (<HTMLInputElement>event.target).value;
@@ -342,6 +354,6 @@ export class SignatureComponent {
             this.spinnerLoading = false;
             this.copyResponse = false;
         }, 2300)
-  
     }
+    
   }

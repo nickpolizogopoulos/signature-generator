@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     selector: 'app-pass-reset',
     template: `
     
-    <h1 class="mb-3 h2 mainblue">Password Reset</h1>
+        <h1 class="mb-3 h2 mainblue">Password Reset</h1>
     
     
     `

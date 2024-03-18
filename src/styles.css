@@ -66,3 +66,11 @@ h1,h2,h3,h4,h5 {
 .container-fluid {
     padding: 0px 40px;
 }
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: rgb(30, 47, 90);
+}
+::selection {
+    color: white;
+    background: rgb(30, 47, 90);
+}
