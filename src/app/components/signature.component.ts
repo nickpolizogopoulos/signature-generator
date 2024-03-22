@@ -14,8 +14,8 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                         <ol class="lead">
                             <li><p>Fill in the forms to generate your signatures.</p></li>
                             <li><p>Copy your signatures below the forms and paste them to your email client.</p></li>
-                            <li><p class="lead">Make sure you're using this Application from a <a class="inherit" routerLink="/compatibility">compatible browser</a>.</p></li>
-                            <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application!</p></li>
+                            <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
+                                <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
                         </ol>
                     </section>
 
