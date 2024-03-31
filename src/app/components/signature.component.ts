@@ -254,7 +254,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                                                                                 <td *ngIf="reddit" width="{{socialIconSpace}}"></td>
                                                                                 <td *ngIf="threads"><a href="{{threadsLink}}"><img width="21" height="auto" src="../assets/social/threads-logo.png" alt="reddit icon"></a></td>
                                                                                 <td *ngIf="threads" width="{{socialIconSpace}}"></td>
-                                                                                <td *ngIf="threads"><a href="{{linktreeLink}}"><img width="21" height="auto" src="../assets/social/linktree-logo.png" alt="reddit icon"></a></td>
+                                                                                <td *ngIf="linktree"><a href="{{linktreeLink}}"><img width="21" height="auto" src="../assets/social/linktree-logo.png" alt="reddit icon"></a></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -411,6 +411,5 @@ export class SignatureComponent {
             this.spinnerLoading = false;
             this.copyResponse = false;
         }, 2300)
-    }
-    
-  }
+    } 
+}

@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 
-
 @Component({
     selector: 'app-navbar',
     template: `
@@ -30,6 +29,7 @@ import { Component } from "@angular/core";
                         </li>
                     </ul>
                     <ul class="navbar-nav">
+                        
                         <li>
                             <a routerLink="/" class="nodecor inherit me-3">Logout</a>
                         </li>
@@ -40,6 +40,4 @@ import { Component } from "@angular/core";
     
     `,
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}

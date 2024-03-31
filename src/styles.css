@@ -51,6 +51,9 @@ h1,h2,h3,h4,h5 {
     cursor: pointer;
     text-decoration: none;
 }
+.my-btn:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
 .copy-response {
     border-radius: 5px;
     padding: 3px 15px;
