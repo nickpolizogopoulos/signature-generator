@@ -22,7 +22,7 @@ import { Component } from "@angular/core";
                 <div>
                     <p class="lead mb-4">Let's make an email signature?</p>
                     <a class="my-btn" routerLink="/signature">Yes please!</a>
-                    <p class="lead mt-5">Found an issue? <a class="inherit" href="mailto:nick.polizogopoulos@gmail.com">Let me know</a>.</p>
+                    <p class="lead mt-5">Found an issue? <a class="inherit" href="#">Fix it on GitHub</a>.</p>
                 </div>
             </section>
         </div>

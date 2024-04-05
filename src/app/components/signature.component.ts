@@ -8,13 +8,13 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
             <div class="row">
                 <div class="col">
 
-                    <!-- FIRST SECTION -->
-                    <section class="boxSection mt-4">
-                        <h1 class="mb-3 h2 mainblue">Signature Generator Application</h1>
-                        <p class="lead">Welcome to the Signature Generator Application! Make your email signature fast and easy!</p>
+                    <!-- WELCOME SECTION -->
+                    <section [innerHTML]="welcomeSection" class="boxSection mt-4">
+                        <h1 class="mb-3 h2 mainblue">Welcome to the Signature Generator Application!</h1>
+                        <p class="lead">You can use this Application to create and customize a brand new email signature fast and easy!</p>
                         <ol class="lead">
-                            <li><p>Fill in the forms to generate your signatures.</p></li>
-                            <li><p>Copy your signatures below the forms and paste them to your email client.</p></li>
+                            <li><p>Fill in the forms with your information.</p></li>
+                            <li><p><a routerLink="/signature" fragment="signatures" class="inherit">Copy your signatures</a> below the forms and paste them to your email client.</p></li>
                             <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
                                 <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
                         </ol>
@@ -112,7 +112,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                     <!-- SOCIAL LINKS -->
                     <section *ngIf="website || facebook || instagram || linkedin || github || twitter || reddit || threads || linktree" class="boxSection">
                         <h4>Paste your social media links below</h4>
-                        <small>[ In case you write any links by hand, <u>make sure you include "https://" infront of them</u> - e.g. <strong>https://</strong>google.com or <strong>https://</strong>www.google.com ]</small>
+                        <small>[ If you want to write the links manually, <u>make sure you include "https://" infront of them</u> - e.g. <strong>https://</strong>google.com or <strong>https://</strong>www.google.com ]</small>
                         <div class="row mt-3">
                             <div class="col-xl-5">
                                 <input *ngIf="website" [(ngModel)]="websiteLink" type="text" class="form-control" placeholder="Website">
@@ -165,7 +165,9 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                         </div>
                         <h4 class="mt-3 mb-3">Space between the social media icons</h4>
                         <div class="col-md-8 col-xl-7 col-xxl-5">
-                            <input [(ngModel)]="socialIconSpace" type="range" class="form-range" min="3" max="15">
+                            <input
+                                [disabled]="!website && !facebook && !instagram && !linkedin && !github && !twitter && !reddit && !threads && !linktree" 
+                                [(ngModel)]="socialIconSpace" type="range" class="form-range" min="3" max="15">
                         </div>
                         <p class="lead">{{socialIconSpace}} pixels</p>
                     </section>
@@ -175,7 +177,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                         <div class="row">
 
                             <div class="col-xl-6 mb-3">
-                                <div class="col-xl-8">
+                                <div class="col-xl-9">
                                     <h4 class="mb-3">Name, Surname, Tel. and Email colour</h4>
                                     <label class="mb-2" for="pickerA">Use the color picker</label>
                                     <div><input class="mb-2" [(ngModel)]="textAColour" type="color" id="pickerA"></div>
@@ -186,8 +188,8 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                             </div>
 
                             <div class="col-xl-6 mb-3">
-                                <div class="col-xl-8">
-                                    <h4 class="mb-3">Title, telephone number and email address colour</h4>
+                                <div class="col-xl-9">
+                                    <h4 class="mb-3">Title, telephone number, email address and location colour</h4>
                                     <label class="mb-2" for="pickerB">Use the color picker</label>
                                     <div><input class="mb-2" [(ngModel)]="textBColour" type="color" id="pickerB"></div>
                                     <p>{{textBColour}}</p>
@@ -200,7 +202,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                     </section>
 
                     <!-- SIGNATURE -->
-                    <section class="boxSection">
+                    <section id="signatures" class="boxSection">
                         <h4 class="mb-4">Your Signature</h4>
                         <table #signature cellspacing="0" cellpadding="4" style="background-color: white; font-family: 'Montserrat', sans-serif; line-height: 1.3;" class="signature">
                             <tbody>
@@ -277,6 +279,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                             <span *ngIf="copyResponse"class="copy-response text-success">Done!</span>
                         </div>
                     </section>
+
                 </div>
             </div>
         </div>
@@ -412,4 +415,14 @@ export class SignatureComponent {
             this.copyResponse = false;
         }, 2300)
     } 
+
+
+    welcomeSection:string = `<h1 class="mb-3 h2 mainblue">Welcome to the Signature Generator Application!</h1>
+    <p class="lead">You can use this Application to create and customize a brand new email signature fast and easy!</p>
+    <ol class="lead">
+        <li><p>Fill in the forms with your information.</p></li>
+        <li><p><a routerLink="/signature" fragment="signatures" class="inherit">Copy your signatures</a> below the forms and paste them to your email client.</p></li>
+        <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
+            <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
+    </ol>`
 }
