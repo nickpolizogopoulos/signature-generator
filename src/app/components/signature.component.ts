@@ -9,14 +9,14 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                 <div class="col">
 
                     <!-- WELCOME SECTION -->
-                    <section [innerHTML]="welcomeSection" class="boxSection mt-4">
-                        <h1 class="mb-3 h2 mainblue">Welcome to the Signature Generator Application!</h1>
+                    <section class="boxSection mt-4">
+                        <h2 class="mb-3 mainblue">Welcome to the Signature Generator Application!</h2>
                         <p class="lead">You can use this Application to create and customize a brand new email signature fast and easy!</p>
                         <ol class="lead">
                             <li><p>Fill in the forms with your information.</p></li>
                             <li><p><a routerLink="/signature" fragment="signatures" class="inherit">Copy your signatures</a> below the forms and paste them to your email client.</p></li>
                             <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
-                                <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
+                            <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
                         </ol>
                     </section>
 
@@ -416,13 +416,4 @@ export class SignatureComponent {
         }, 2300)
     } 
 
-
-    welcomeSection:string = `<h1 class="mb-3 h2 mainblue">Welcome to the Signature Generator Application!</h1>
-    <p class="lead">You can use this Application to create and customize a brand new email signature fast and easy!</p>
-    <ol class="lead">
-        <li><p>Fill in the forms with your information.</p></li>
-        <li><p><a routerLink="/signature" fragment="signatures" class="inherit">Copy your signatures</a> below the forms and paste them to your email client.</p></li>
-        <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
-            <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
-    </ol>`
 }

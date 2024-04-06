@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
     
         <div class="container-fluid">
             <section class="boxSection mt-4">
-                <h1 class="mb-3 h2 mainblue">Compatibility</h1>
+                <h1 class="mb-3 h2 mainblue">Browser Compatibility</h1>
                 
             </section>
 
@@ -17,5 +17,5 @@ import { Component } from "@angular/core";
     `
 })
 export class CompatibilityComponent {
-
+    
 }
