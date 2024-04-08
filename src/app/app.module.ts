@@ -6,21 +6,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar.component';
-import { PasswordResetComponent } from './components/pass-reset.component';
 import { CompatibilityComponent } from './components/compatibility.component';
 import { SignatureComponent } from './components/signature.component';
 import { AboutComponent } from './components/about.component';
-import { PageNotFoundComponent } from './components/page-not-found.component';
+import { FirstStyleComponent } from './components/signature-styles/first-style.component';
+import { FourthStyleComponent } from './components/signature-styles/fourth-style.component';
+import { SecondStyleComponent } from './components/signature-styles/second-style.component';
+import { ThirdStyleComponent } from './components/signature-styles/third-style.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    PasswordResetComponent,
-    CompatibilityComponent,
     SignatureComponent,
     AboutComponent,
-    PageNotFoundComponent
+    CompatibilityComponent,
+    FirstStyleComponent,
+    SecondStyleComponent,
+    ThirdStyleComponent,
+    FourthStyleComponent,
   ],
   imports: [
     BrowserModule,
