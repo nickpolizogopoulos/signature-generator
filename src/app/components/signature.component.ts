@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-signature',
@@ -14,7 +15,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
                         <p class="lead">You can use this Application to create and customize a brand new email signature fast and easy!</p>
                         <ol class="lead">
                             <li><p>Fill in the forms with your information.</p></li>
-                            <li><p><a routerLink="/signature" fragment="signatures" class="inherit">Copy your signatures</a> below the forms and paste them to your email client.</p></li>
+                            <li><p><a (click)="onScrollTo('signature#','signatures')" class="inherit cursor-pointer">Copy your signatures</a> below the forms and paste them to your email client.</p></li>
                             <li><p><a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
                             <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a></p></li>
                         </ol>
@@ -288,6 +289,10 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 })
 export class SignatureComponent {
 
+    constructor(
+        private router:Router,
+    ) { }
+
     name:string = 'Name';
     surname:string = 'Surname';
     title:string = 'Job title';
@@ -415,5 +420,9 @@ export class SignatureComponent {
             this.copyResponse = false;
         }, 2300)
     } 
+
+    onScrollTo( route:string, fragment:string ):void {
+        this.router.navigateByUrl( route + fragment );
+    }
 
 }

@@ -10,6 +10,9 @@ h1,h2,h3,h4,h5 {
 .inherit {
     color: inherit;
 }
+.cursor-pointer {
+    cursor: pointer;
+}
 .mainblue {
     color: rgb(30, 47, 90);
 }
