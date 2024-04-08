@@ -120,7 +120,7 @@ import { Router } from "@angular/router";
                                 <input *ngIf="facebook" [(ngModel)]="facebookLink" type="text" class="form-control" placeholder="Facebook">
                                 <input *ngIf="instagram" [(ngModel)]="instagramLink" type="text" class="form-control" placeholder="Instagram">
                                 <input *ngIf="linkedin" [(ngModel)]="linkedinLink" type="text" class="form-control" placeholder="LinkedIn">
-                                <input *ngIf="twitter" [(ngModel)]="twitterLink" type="text" class="form-control" placeholder="X">
+                                <input *ngIf="twitter" [(ngModel)]="twitterLink" type="text" class="form-control" placeholder="Twitter">
                                 <input *ngIf="github" [(ngModel)]="githubLink" type="text" class="form-control" placeholder="GitHub">
                                 <input *ngIf="reddit" [(ngModel)]="redditLink" type="text" class="form-control" placeholder="Reddit">
                                 <input *ngIf="threads" [(ngModel)]="threadsLink" type="text" class="form-control" placeholder="Threads">
