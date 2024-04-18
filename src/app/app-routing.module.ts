@@ -1,33 +1,32 @@
 import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { 
+  ExtraOptions, 
+  RouterModule, 
+  Routes 
+} from '@angular/router';
 
+import { HomeComponent } from './components/home.component';
 import { AboutComponent } from './components/about.component';
 import { CompatibilityComponent } from './components/compatibility.component';
-import { PasswordResetComponent } from './components/pass-reset.component';
-import { SignatureComponent } from './components/signature.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+
+const appTitle:string = 'Signature Generator Application';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'signature',
-    pathMatch: 'full'
-  },
-  {
-    path: 'signature',
-    component: SignatureComponent
+    title: `${appTitle}`,
+    component: HomeComponent
   },
   {
     path: 'about',
+    title: `${appTitle} - About`,
     component: AboutComponent
   },
   {
     path: 'compatibility',
+    title: `${appTitle} - Compatibility`,
     component: CompatibilityComponent
-  },
-  {
-    path: 'password-reset',
-    component: PasswordResetComponent
   },
   { 
     path: '**',
@@ -35,6 +34,7 @@ const routes: Routes = [
   },
   { 
     path: '404',
+    title: `${appTitle} - 404`,
     component: PageNotFoundComponent
   },
 ];

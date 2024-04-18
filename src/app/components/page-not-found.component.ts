@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-page-not-found',
@@ -10,13 +11,11 @@ import { Component } from "@angular/core";
                     <h1 class="mb-3 h2 mainblue">404</h1>
                     <hr>
                     <p class="lead mb-5">This page does not exist.</p>
-                    <a class="my-btn" routerLink="/signature">Go back</a>
+                    <a class="button" routerLink="/signature">Go back</a>
                 </div>
             </section>
         </div>
         
     `
 })
-export class PageNotFoundComponent {
-
-}
+export class PageNotFoundComponent {}

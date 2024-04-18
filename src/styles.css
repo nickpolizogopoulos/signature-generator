@@ -44,14 +44,6 @@ h1,h2,h3,h4,h5 {
 .form-check label {
     cursor: pointer;
 }
-.boxSection {
-    background-color: rgb(255, 255, 255);
-    padding: 25px;
-    border-radius: 17px;
-    border: 1px solid rgba(21, 33, 64, 0.168);
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.113);
-    margin-bottom: 30px;
-}
 .clickToCopyBox {
     margin-top: 35px;
 }
@@ -67,6 +59,12 @@ h1,h2,h3,h4,h5 {
 .button:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.button:disabled {
+    cursor: default;
+    color: rgb(165, 165, 165);
+    border-color: rgb(165, 165, 165);
+    box-shadow: none;
+}
 .copy-response {
     border-radius: 5px;
     padding: 3px 15px;
@@ -76,6 +74,38 @@ h1,h2,h3,h4,h5 {
 .signatureBox {
     box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.12);
 }
+.boxSection {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(21, 33, 64, 0.168);
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
+    margin-bottom: 30px;
+}
+.expand-section {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(21, 33, 64, 0.168);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.113);
+    padding: 7px 15px;
+    user-select: none;
+}
+
+.helvetica {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+.monospace {
+    font-family: monospace;
+}
+.didot {
+    font-family: Didot;
+}
+.futura {
+    font-family: Futura;
+    font-weight: 100;
+}
+
 ::-moz-selection { /* Code for Firefox */
     color: white;
     background: rgb(30, 47, 90);
@@ -84,3 +114,11 @@ h1,h2,h3,h4,h5 {
     color: white;
     background: rgb(30, 47, 90);
 }
+
+
+/* .redbg {
+    background-color: rgb(209, 88, 88);
+}
+.bluebg {
+    background-color: rgb(63, 100, 169);
+} */
