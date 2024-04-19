@@ -46,6 +46,7 @@ export class SignatureUtilitiesComponent {
     @Input() textBColour?:string;
     @Input() socialIconSpace!:string;
     @Input() lineWidth!:number;
+    @Input() logoWidth!:number;
 
     @Input() capitaliseNameSurname:boolean = false;
     @Input() capitaliseTitle:boolean = false;
@@ -57,9 +58,19 @@ export class SignatureUtilitiesComponent {
     @Input() spinnerLoading:boolean = false;
     @Input() copyResponse:boolean = false;
 
+    @Input() fontFamily!:string;
+
     spinnerOnTime:number = 1000;
     spinnerOffTime:number = 2300;
 
+    passSelectedFont():string {
+        return this.fontFamily === 'helvetica' ? 'helvetica'
+        : this.fontFamily === 'monospace' ? 'monospace'
+        : this.fontFamily === 'didot' ? 'didot'
+        : this.fontFamily === 'futura' ? 'futura'
+        : this.fontFamily === 'copperplate' ? 'copperplate' 
+        : ''
+    }
 
     copySignatureStyle( signature:any ):void {
         const content = signature.nativeElement as HTMLElement;

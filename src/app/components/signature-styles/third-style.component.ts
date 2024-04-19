@@ -8,11 +8,11 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
         <table #thirdSignature class="signatureBox" cellspacing="0" cellpadding="4" style="background-color: white; border-collapse: collapse; font-size: 11.7px; line-height: 1.3;">
             <tr *ngIf="!withoutLogo">
                 <td align="center">
-                    <img src="{{logoUrl}}" width="142" style="min-width: 142px;" alt="logo">
+                    <img src="{{logoUrl}}" width="{{logoWidth}}" alt="logo">
                 </td>
             </tr>
             <tr>
-                <td style="font: {{nameSurnameFontSize}}px Palatino Linotype, Book Antiqua, Palatino, serif; color: {{textAColour}};" align="center">
+                <td style="font: {{nameSurnameFontSize}}px {{ passSelectedFont() }}; color: {{textAColour}};" align="center">
                     <span *ngIf="!boldName && !underlineName">{{capitaliseNameSurname ? [name  | uppercase] : name}} {{capitaliseNameSurname ? [surname  | uppercase] : surname}}</span>
                     <strong *ngIf="boldName && !underlineName">{{capitaliseNameSurname ? [name  | uppercase] : name}} {{capitaliseNameSurname ? [surname  | uppercase] : surname}}</strong>
                     <u *ngIf="!boldName && underlineName">{{capitaliseNameSurname ? [name  | uppercase] : name}} {{capitaliseNameSurname ? [surname  | uppercase] : surname}}</u>
@@ -20,7 +20,7 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
                 </td>
             </tr>
             <tr>
-                <td style="color: {{textBColour}}; font-style: normal; font-stretch: normal; font-size: {{titleFontSize}}px; line-height: 20.3px; font-family: Palatino Linotype, Book Antiqua, Palatino, serif; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-language-override: normal; font-feature-settings: normal; font-variation-settings: normal;" align="center">
+                <td style="color: {{textBColour}}; font-style: normal; font-stretch: normal; font-size: {{titleFontSize}}px; line-height: 20.3px; font-family: {{ passSelectedFont() }}; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-language-override: normal; font-feature-settings: normal; font-variation-settings: normal;" align="center">
                     <span *ngIf="!boldTitle && !underlineTitle">{{capitaliseTitle ? [title  | uppercase] : title}}</span>
                     <strong *ngIf="boldTitle && !underlineTitle">{{capitaliseTitle ? [title  | uppercase] : title}}</strong>
                     <u *ngIf="!boldTitle && underlineTitle">{{capitaliseTitle ? [title  | uppercase] : title}}</u>
@@ -32,26 +32,26 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
                 <td *ngIf="lineSeparator" style="padding: 9px 0px;" align="center">
                     <table cellpadding="0" style="border-collapse: collapse;">
                         <tr>
-                            <td height="1" style="border-top: 2px solid rgb(65, 37, 37); font: 1px / 1px Georgia, serif; width: {{lineWidth}}px;"></td>
+                            <td height="1" style="border-top: 2px solid rgb(65, 37, 37); width: {{lineWidth}}px;"></td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr style="cursor: pointer;">
-                <td align="center" style="padding: 7px 20px; font: {{informationFontSize}}px Palatino Linotype, Book Antiqua, Palatino, serif; color: rgb(0, 0, 0); border-bottom: 1px solid rgb(235, 228, 228);">
-                    <a href="mailto: {{email}}" style="color: {{textBColour}}; text-decoration: none; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;" target="_blank">
+                <td align="center" style="padding: 7px 20px; font: {{informationFontSize}}px {{ passSelectedFont() }}; color: rgb(0, 0, 0); border-bottom: 1px solid rgb(235, 228, 228);">
+                    <a href="mailto: {{email}}" style="color: {{textBColour}}; text-decoration: none; font-family: {{ passSelectedFont() }};" target="_blank">
                         {{email}}&nbsp;&nbsp;
                     </a>
-                    <a href="tel:{{phone}}" style="color: {{textBColour}}; text-decoration: none; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;" target="_blank">
+                    <a href="tel:{{phone}}" style="color: {{textBColour}}; text-decoration: none; font-family: {{ passSelectedFont() }};" target="_blank">
                         {{phone}}
                     </a>
                 </td>
             </tr>
             <tr>
-                <td style="font: {{informationFontSize}}px Palatino Linotype, Book Antiqua, Palatino, serif; color: rgb(0, 0, 1);" align="center">
+                <td style="font: {{informationFontSize}}px {{ passSelectedFont() }}; color: rgb(0, 0, 1);" align="center">
                     <table cellpadding="0" align="center" style="border-collapse: collapse;">
                         <tr>
-                            <td style="padding: 7px 20px; font: 13.3px / 16.9px Palatino Linotype, Book Antiqua, Palatino, serif; color: rgb(0, 0, 0); border-bottom: 1px solid rgb(235, 228, 228);">
+                            <td style="padding: 7px 20px; font: {{informationFontSize}} {{ passSelectedFont() }}; color: rgb(0, 0, 0); border-bottom: 1px solid rgb(235, 228, 228);">
                                 <span style="color: {{textBColour}};">
                                     {{location}}
                                 </span>

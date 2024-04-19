@@ -25,12 +25,12 @@ import { Component } from "@angular/core";
                     </section>
 
                     <!-- INFORMATION INPUT FIELDS -->
-                    <p *ngIf="!informationWindow" (click)="panelClose('information')" class="lead cursor-pointer expand-section">+ Your information</p>
+                    <p *ngIf="!informationWindow" (click)="panelClose('information')" class="lead cursor-pointer expand-section">+ Signature Information</p>
                     <section *ngIf="informationWindow" class="boxSection">
 
                         <div class="row d-flex mb-4">
                             <div class="col-9">
-                                <h4>Enter your information</h4>
+                                <h4>Signature Information</h4>
                             </div>
                             <div class="col d-flex flex-row-reverse">
                                 <button (click)="panelClose('information')" type="button" class="btn-close shadow-none mt-1"></button>
@@ -66,13 +66,14 @@ import { Component } from "@angular/core";
 
                         <div class="row d-flex mb-4">
                             <div class="col-9">
-                                <h4>Add your social media</h4>
+                                <h4>Social Media</h4>
                             </div>
                             <div class="col d-flex flex-row-reverse">
                                 <button (click)="panelClose('socialMedia')" type="button" class="btn-close shadow-none mt-1"></button>
                             </div>
                         </div>
 
+                        <p class="lead">1. Check the social media you wish to include in your signature</p>
                         <div class="row">
                             <div class="col-5 col-md-3">
                                 <div class="form-check">
@@ -142,7 +143,7 @@ import { Component } from "@angular/core";
 
                         <div *ngIf="this.website || this.facebook || this.instagram || this.linkedin || this.github || this.twitter || this.reddit || this.threads || this.linktree" class="row mt-4">
 
-                            <p class="lead">Paste your social media links below</p>
+                            <p class="lead">2. Paste your social media links below</p>
                             <small>[ If you want to write the links manually, <u>make sure you include "https://" infront of them</u> - e.g. <strong>https://</strong>google.com or <strong>https://</strong>www.google.com ]</small>
 
                             <div class="row mt-3">
@@ -174,6 +175,45 @@ import { Component } from "@angular/core";
                                 <button (click)="panelClose('preferences')" type="button" class="btn-close shadow-none mt-1"></button>
                             </div>
                         </div>
+
+                        <p *ngIf="!withoutLogo" class="lead mt-3 mb-3">1. Logo width</p>
+                        <div *ngIf="!withoutLogo" class="col">
+                            <input [disabled]="withoutLogo" [(ngModel)]="logoWidth"
+                                    type="range" class="form-range" min="70" max="200">
+                        </div>
+                        <p *ngIf="!withoutLogo" class="mb-4">{{logoWidth}} pixels</p>
+
+                        <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '1' : '2'}}</span>. Horizontal line separator width</p>
+                        <div class="col">
+                            <input [disabled]="!lineSeparator" [(ngModel)]="lineWidth" 
+                                    type="range" class="form-range" min="30" max="200">
+                        </div>
+                        <p class="mb-4">{{lineWidth}} pixels</p>
+                        
+                        <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '2' : '3'}}</span>. Space between the social media icons</p>
+                        <div class="col">
+                            <input
+                                [disabled]="!website && !facebook && !instagram && !linkedin && !github && !twitter && !reddit && !threads && !linktree" 
+                                [(ngModel)]="socialIconSpace" type="range" class="form-range" min="4" max="15">
+                        </div>
+                        <p class="mb-4">{{socialIconSpace}} pixels</p>
+
+                    </section>
+
+                    <!-- TYPOGRAPHY -->
+                    <p *ngIf="!typographyWindow" (click)="panelClose('typography')" class="lead cursor-pointer expand-section">+ Typography</p>
+                    <section *ngIf="typographyWindow" class="boxSection">
+
+                        <div class="row d-flex mb-4">
+                            <div class="col-9">
+                                <h4>Typography</h4>
+                            </div>
+                            <div class="col d-flex flex-row-reverse">
+                                <button (click)="panelClose('typography')" type="button" class="btn-close shadow-none mt-1"></button>
+                            </div>
+                        </div>
+
+                        <p class="lead">1. Decorate your signature.</p>
 
                         <div class="row">
                             <div class="col-xl-4">
@@ -217,7 +257,7 @@ import { Component } from "@angular/core";
                             </div>
                         </div>
                             
-                        <div class="row mb-5">
+                        <div class="row mb-4">
                             <div class="col-xl-3">
                                 <div class="form-check">
                                     <input [(ngModel)]="lineSeparator" class="form-check-input" type="checkbox" id="line">
@@ -225,64 +265,64 @@ import { Component } from "@angular/core";
                                 </div>
                             </div>
                         </div>
-                        <h4 class="mt-3 mb-3">Space between the social media icons</h4>
-                        <div class="col">
-                            <input
-                                [disabled]="!website && !facebook && !instagram && !linkedin && !github && !twitter && !reddit && !threads && !linktree" 
-                                [(ngModel)]="socialIconSpace" type="range" class="form-range" min="4" max="15">
+
+                        <p class="lead">2. Pick your favorite font style.</p>
+
+                        <div class="row mb-4 noselect">
+                            <div class="col-block col-sm-6 col-md-3">
+                                <div class="form-check lead">
+                                    <input [(ngModel)]="fontFamily" [value]="'helvetica'" class="form-check-input" type="radio" name="fonts" id="helvetica">
+                                    <label class="form-check-label helvetica" for="helvetica">Helvetica</label>
+                                </div>
+                            </div>
+                            <div class="col-block col-sm-6 col-md-3">
+                                <div class="form-check lead">
+                                    <input [(ngModel)]="fontFamily" [value]="'monospace'" class="form-check-input" type="radio" name="fonts" id="monospace">
+                                    <label class="form-check-label monospace" for="monospace">Monospace</label>
+                                </div>
+                            </div>
+                            <div class="col-block col-sm-6 col-md-3">
+                                <div class="form-check lead">
+                                    <input [(ngModel)]="fontFamily" [value]="'didot'" class="form-check-input" type="radio" name="fonts" id="didot">
+                                    <label class="form-check-label didot" for="didot">Didot</label>
+                                </div>
+                            </div>
+                            <div class="col-block col-sm-6 col-md-3">
+                                <div class="form-check lead">
+                                    <input [(ngModel)]="fontFamily" [value]="'futura'" class="form-check-input" type="radio" name="fonts" id="futura">
+                                    <label class="form-check-label futura" for="futura">Futura</label>
+                                </div>
+                            </div>
+                            <div class="col-block col-sm-6 col-md-3">
+                                <div class="form-check lead">
+                                    <input [(ngModel)]="fontFamily" [value]="'copperplate'" class="form-check-input" type="radio" name="fonts" id="copperplate">
+                                    <label class="form-check-label copperplate" for="copperplate">Copperplate</label>
+                                </div>
+                            </div>
                         </div>
-                        <p class="lead">{{socialIconSpace}} pixels</p>
 
-                        <h4 class="mt-3 mb-3">Horizontal line separator width</h4>
-                        <div class="col">
-                            <input
-                                [disabled]="!lineSeparator" 
-                                [(ngModel)]="lineWidth" type="range" class="form-range" min="30" max="200">
-                        </div>
-                        <p class="lead">{{lineWidth}} pixels</p>
-
-                    </section>
-
-                    <!-- TYPOGRAPHY -->
-                    <p *ngIf="!typographyWindow" (click)="panelClose('typography')" class="lead cursor-pointer expand-section">+ Typography</p>
-                    <section *ngIf="typographyWindow" class="boxSection">
-
-                        <div class="row d-flex mb-4">
-                            <div class="col-9">
-                                <h4>Typography</h4>
+                        <p class="lead">3. Name & Surname font size.</p>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <input [(ngModel)]="nameSurnameFontSize" type="range" class="form-range" min="15" max="25">
                             </div>
-                            <div class="col d-flex flex-row-reverse">
-                                <button (click)="panelClose('typography')" type="button" class="btn-close shadow-none mt-1"></button>
-                            </div>
+                            <p class="mb-4">{{nameSurnameFontSize}} pixels</p>
                         </div>
 
-                        <p class="lead">Pick your favorite font style.</p>
+                        <p class="lead">4. Title font size.</p>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <input [(ngModel)]="titleFontSize" type="range" class="form-range" min="9" max="20">
+                            </div>
+                            <p class="mb-4">{{titleFontSize}} pixels</p>
+                        </div>
 
-                        <div class="row noselect">
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="fonts" id="helvetica">
-                                    <label class="form-check-label lead helvetica" for="helvetica">Helvetica</label>
-                                </div>
+                        <p class="lead">6. Information font size.</p>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <input [(ngModel)]="informationFontSize" type="range" class="form-range" min="9" max="20">
                             </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="fonts" id="monospace">
-                                    <label class="form-check-label lead monospace" for="monospace">Monospace</label>
-                                </div>
-                            </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="fonts" id="didot">
-                                    <label class="form-check-label lead didot" for="didot">Didot</label>
-                                </div>
-                            </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="fonts" id="futura">
-                                    <label class="form-check-label lead futura" for="futura">Futura</label>
-                                </div>
-                            </div>
+                            <p class="mb-4">{{informationFontSize}} pixels</p>
                         </div>
 
                     </section>
@@ -379,6 +419,8 @@ import { Component } from "@angular/core";
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
                                     [withoutLogo]="withoutLogo"
+                                    fontFamily="{{fontFamily}}"
+                                    [logoWidth]="logoWidth"
                                 ></app-first-style>
                             </div>
                         </div>
@@ -427,6 +469,8 @@ import { Component } from "@angular/core";
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
                                     [withoutLogo]="withoutLogo"
+                                    fontFamily="{{fontFamily}}"
+                                    [logoWidth]="logoWidth"
                                 ></app-second-style>
                             </div>
                         </div>
@@ -475,6 +519,8 @@ import { Component } from "@angular/core";
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
                                     [withoutLogo]="withoutLogo"
+                                    fontFamily="{{fontFamily}}"
+                                    [logoWidth]="logoWidth"
                                 ></app-third-style>
                             </div>
                         </div>
@@ -522,6 +568,8 @@ import { Component } from "@angular/core";
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
                                     [withoutLogo]="withoutLogo"
+                                    fontFamily="{{fontFamily}}"
+                                    [logoWidth]="logoWidth"
                                 ></app-fourth-style>
                             </div>
                         </div>
@@ -543,8 +591,8 @@ import { Component } from "@angular/core";
 })
 export class HomeComponent {
 
-    // ngOnInit() {
-    //     this.checkAllSocial();
+    ngOnInit() {
+        this.checkAllSocial();
     //     this.lineSeparator = true;
     //     this.name = 'Nick';
     //     this.surname = 'Polizogopoulos';
@@ -553,7 +601,12 @@ export class HomeComponent {
     //     this.email = 'nick.polizogopoulos@gmail.com';
     //     this.location = 'Patras, Western Greece';
     //     this.logoUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
-    // }
+    this.informationWindow = false;
+    this.socialMediaWindow = false;
+    this.preferencesWindow = false;
+    this.typographyWindow = true;
+    this.coloursWindow = false;
+    }
 
     name:string = 'Name';
     surname:string = 'Surname';
@@ -596,19 +649,23 @@ export class HomeComponent {
     socialIconSpace:string = '7';
     lineSeparator:boolean = true;
     lineWidth:number = 30;
+    logoWidth:number = 140;
 
+    // *FONT AND LOGO SIZE
     nameSurnameFontSize:number = 19;
     titleFontSize:number = 14;
     informationFontSize:number = 14;
+
+    fontFamily:string = 'helvetica';
     
     spinnerLoading:boolean = false;
     copyResponse:boolean = false;
 
-    informationWindow:boolean = false;
-    socialMediaWindow:boolean = false;
-    preferencesWindow:boolean = false;
+    informationWindow:boolean = true;
+    socialMediaWindow:boolean = true;
+    preferencesWindow:boolean = true;
     typographyWindow:boolean = true;
-    coloursWindow:boolean = false;
+    coloursWindow:boolean = true;
 
     onUpdateName( event:Event ):void {
         this.name = (<HTMLInputElement>event.target).value;

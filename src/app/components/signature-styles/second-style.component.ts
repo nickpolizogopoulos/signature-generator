@@ -8,11 +8,11 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
         <table #secondSignature cellspacing="0" cellpadding="4" style="background-color: white; border-collapse: collapse; font-size: 11.7px; line-height: 1.3;" class="signatureBox">
             <tr *ngIf="!withoutLogo">
                 <td>
-                    <img src="{{logoUrl}}" width="142" height="auto" alt="logo">
+                    <img src="{{logoUrl}}" width="{{logoWidth}}" height="auto" alt="logo">
                 </td>
             </tr>
             <tr>
-                <td style="font: {{nameSurnameFontSize}}px Georgia, serif; color: {{textAColour}}; letter-spacing: 0.4pt;">
+                <td style="font: {{nameSurnameFontSize}}px {{ passSelectedFont() }}; color: {{textAColour}}; letter-spacing: 0.4pt;">
                     <span *ngIf="!boldName && !underlineName">{{capitaliseNameSurname ? [name  | uppercase] : name}} {{capitaliseNameSurname ? [surname  | uppercase] : surname}}</span>
                     <strong *ngIf="boldName && !underlineName">{{capitaliseNameSurname ? [name  | uppercase] : name}} {{capitaliseNameSurname ? [surname  | uppercase] : surname}}</strong>
                     <u *ngIf="!boldName && underlineName">{{capitaliseNameSurname ? [name  | uppercase] : name}} {{capitaliseNameSurname ? [surname  | uppercase] : surname}}</u>
@@ -20,7 +20,7 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
                 </td>
             </tr>
             <tr>
-                <td style="font: {{titleFontSize}}px Georgia, serif; color: rgb(134, 69, 69); color: {{textBColour}};">
+                <td style="font: {{titleFontSize}}px {{ passSelectedFont() }}; color: rgb(134, 69, 69); color: {{textBColour}};">
                     <span *ngIf="!boldTitle && !underlineTitle">{{capitaliseTitle ? [title  | uppercase] : title}}</span>
                     <strong *ngIf="boldTitle && !underlineTitle">{{capitaliseTitle ? [title  | uppercase] : title}}</strong>
                     <u *ngIf="!boldTitle && underlineTitle">{{capitaliseTitle ? [title  | uppercase] : title}}</u>
@@ -32,29 +32,29 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
                 <td *ngIf="lineSeparator" style="padding: 15px 0px 15px 5px;">
                     <table cellpadding="0" style="border-collapse: collapse;">
                         <tr>
-                            <td height="1" width="{{lineWidth}}" style="margin: 0.1px; padding: 0px; border-top: 2px solid rgb(65, 37, 37); font: 1px / 1px Georgia, serif; "></td>
+                            <td height="1" width="{{lineWidth}}" style="margin: 0.1px; padding: 0px; border-top: 2px solid rgb(65, 37, 37);"></td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td style="font: {{informationFontSize}}px Georgia, serif; color: {{textAColour}};">
+                <td style="font: {{informationFontSize}}px {{ passSelectedFont() }}; color: {{textAColour}};">
                     <span style="font-weight: 600;">Email:&nbsp;</span>
-                    <a href="mailto:{{email}}" style="color: {{textBColour}}; text-decoration: none; font-family: Georgia, serif;" target="_blank">
+                    <a href="mailto:{{email}}" style="color: {{textBColour}}; text-decoration: none; font-family: {{ passSelectedFont() }};" target="_blank">
                         {{email}}
                     </a>
                 </td>
             </tr>
             <tr>
-                <td style="font: {{informationFontSize}}px Georgia, serif; color: {{textAColour}};">
+                <td style="font: {{informationFontSize}}px {{ passSelectedFont() }}; color: {{textAColour}};">
                     <span style="font-weight: 600;">Phone:&nbsp;</span>
-                    <a href="tel:{{phone}}" style="color: {{textBColour}}; text-decoration: none; font-family: Georgia, serif;" target="_blank">
+                    <a href="tel:{{phone}}" style="color: {{textBColour}}; text-decoration: none; font-family: {{ passSelectedFont() }};" target="_blank">
                         {{phone}}
                     </a>
                 </td>
             </tr>
             <tr>
-                <td style="font: {{informationFontSize}}px Georgia, serif; color: {{textBColour}};">
+                <td style="font: {{informationFontSize}}px {{ passSelectedFont() }}; color: {{textBColour}};">
                     {{location}}
                 </td>
             </tr>

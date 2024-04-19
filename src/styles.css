@@ -105,6 +105,9 @@ h1,h2,h3,h4,h5 {
     font-family: Futura;
     font-weight: 100;
 }
+.copperplate {
+    font-family: Copperplate, Papyrus, fantasy;
+}
 
 ::-moz-selection { /* Code for Firefox */
     color: white;
@@ -115,10 +118,9 @@ h1,h2,h3,h4,h5 {
     background: rgb(30, 47, 90);
 }
 
-
-/* .redbg {
+.redbg {
     background-color: rgb(209, 88, 88);
 }
 .bluebg {
     background-color: rgb(63, 100, 169);
-} */
+}
