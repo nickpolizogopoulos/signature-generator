@@ -17,6 +17,9 @@ import { Component } from "@angular/core";
                 </button>
                 <div class="collapse navbar-collapse ms-3" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li>
+                            <h2 routerLink="/" class="d-lg-none mt-3 cursor-pointer">Signature Generator</h2>
+                        </li>
                         <li class="nav-item ms-3">
                             <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
                         </li>
@@ -42,9 +45,11 @@ import { Component } from "@angular/core";
     `,
 
     styles: [`
+
         .navbar-toggler {
             border: 0px solid black;
         }
+        
     `]
 })
 export class NavbarComponent {

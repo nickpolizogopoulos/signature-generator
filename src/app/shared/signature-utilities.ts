@@ -8,6 +8,7 @@ import {
 })
 export class SignatureUtilitiesComponent {
 
+    //* Signature Information
     @Input() name?:string;
     @Input() surname?:string;
     @Input() title?:string;
@@ -17,6 +18,7 @@ export class SignatureUtilitiesComponent {
     @Input() logoUrl?:string;
     @Input() withoutLogo!:boolean;
 
+    //* Social Media
     @Input() website!:boolean;
     @Input() facebook!:boolean;
     @Input() instagram!:boolean;
@@ -27,6 +29,7 @@ export class SignatureUtilitiesComponent {
     @Input() threads!:boolean;
     @Input() linktree!:boolean;
 
+    //* Social Media Links
     @Input() websiteLink?:string;
     @Input() facebookLink?:string;
     @Input() instagramLink?:string;
@@ -37,29 +40,33 @@ export class SignatureUtilitiesComponent {
     @Input() threadsLink?:string;
     @Input() linktreeLink?:string;
 
-    @Input() boldName!:boolean;
-    @Input() boldTitle!:boolean;
-    @Input() underlineName!:boolean;
-    @Input() underlineTitle!:boolean;
-    @Input() lineSeparator!:boolean;
-    @Input() textAColour?:string;
-    @Input() textBColour?:string;
+    //* Signature Preferences
     @Input() socialIconSpace!:string;
     @Input() lineWidth!:number;
     @Input() logoWidth!:number;
 
+    //* Typography
+    @Input() boldName!:boolean;
+    @Input() boldTitle!:boolean;
+    @Input() underlineName!:boolean;
+    @Input() underlineTitle!:boolean;
     @Input() capitaliseNameSurname:boolean = false;
     @Input() capitaliseTitle:boolean = false;
-
     @Input() nameSurnameFontSize!:number;
     @Input() titleFontSize!:number;
     @Input() informationFontSize!:number;
+    @Input() lineSeparator!:boolean;
+    @Input() fontFamily!:string;
 
+    //* Colours
+    @Input() textAColour?:string;
+    @Input() textBColour?:string;
+
+    //* Copying Spinners
     @Input() spinnerLoading:boolean = false;
     @Input() copyResponse:boolean = false;
 
-    @Input() fontFamily!:string;
-
+    //* Copying Spinners Timers
     spinnerOnTime:number = 1000;
     spinnerOffTime:number = 2300;
 
@@ -108,7 +115,7 @@ export class SignatureUtilitiesComponent {
         setTimeout(() => {
             this.spinnerLoading = false;
             this.copyResponse = false;
-        }, 2300);
+        }, this.spinnerOffTime);
     }
     
 }

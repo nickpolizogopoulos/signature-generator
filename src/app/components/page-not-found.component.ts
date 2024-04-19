@@ -11,11 +11,13 @@ import { Router } from "@angular/router";
                     <h1 class="mb-3 h2 mainblue">404</h1>
                     <hr>
                     <p class="lead mb-5">This page does not exist.</p>
-                    <a class="button" routerLink="/signature">Go back</a>
+                    <a class="button" routerLink="/">Go to Home</a>
                 </div>
             </section>
         </div>
-        
+         
     `
 })
-export class PageNotFoundComponent {}
+export class PageNotFoundComponent {
+
+}
