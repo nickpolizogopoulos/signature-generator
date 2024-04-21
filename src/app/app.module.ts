@@ -17,7 +17,9 @@ import { SecondStyleComponent } from './components/signature-styles/second-style
 import { ThirdStyleComponent } from './components/signature-styles/third-style.component';
 import { FourthStyleComponent } from './components/signature-styles/fourth-style.component';
 import { PlaceholderSignatureComponent } from './components/signature-styles/placeholder-home.component';
-import { ExpandSection } from './shared/expand-section.component';
+
+import { ExpandWindowComponent } from './shared/expand-window.component';
+import { CollapseWindowComponent } from './shared/collapse-window.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ExpandSection } from './shared/expand-section.component';
     ThirdStyleComponent,
     FourthStyleComponent,
     PlaceholderSignatureComponent,
-    ExpandSection
+    ExpandWindowComponent,
+    CollapseWindowComponent
   ],
   imports: [
     BrowserModule,

@@ -41,9 +41,9 @@ export class SignatureUtilitiesComponent {
     @Input() linktreeLink?:string;
 
     //* Signature Preferences
-    @Input() socialIconSpace!:string;
-    @Input() lineWidth!:number;
     @Input() logoWidth!:number;
+    @Input() lineWidth!:number;
+    @Input() socialIconSpace!:string;
 
     //* Typography
     @Input() boldName!:boolean;

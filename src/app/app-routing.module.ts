@@ -41,7 +41,7 @@ const routes: Routes = [
 
 const extraOptions:ExtraOptions = {
     scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled'
+    // anchorScrolling: 'enabled' //anchor scrolling is not needed anymore.
 };
 
 @NgModule({

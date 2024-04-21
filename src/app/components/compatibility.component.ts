@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
             <section class="boxSection mt-4">
                 <h1 class="mb-4 h2 mainblue">Application Compatibility</h1>
                 
-                <div class="mb-4">
+                <div class="ms-3 mb-4">
                     <h4 class="mb-3">Mobile</h4>
                     <div class="ms-3">
                         <p class="lead">
@@ -22,7 +22,7 @@ import { Component } from "@angular/core";
                     </div>
                 </div>
 
-                <div class="mb-4">
+                <div class="ms-3 mb-4">
                     <h4 class="mb-3">Browsers</h4>
                     <div class="ms-3">
                         <p class="lead">
@@ -31,7 +31,7 @@ import { Component } from "@angular/core";
                     </div>
                 </div>
 
-                <div class="mb-4">
+                <div class="ms-3 mb-4">
                     <h4 class="mb-3">Email Clients</h4>
                     <div class="ms-3">
                         <p class="lead">

@@ -11,40 +11,35 @@ import { Component } from "@angular/core";
                 <section class="col-block col-xl-6 mt-4">
 
                     <!-- WELCOME -->
-                    <section>
+                    <section> 
                         <div class="boxSection">
-                            <h2 class="mb-3 mainblue">Welcome to the Signature Generator Application!</h2>
-                            <p class="lead">
-                                In this Application you can create a brand new custom email signature fast and easy! 
-                                Fill in the forms with your information and copy your favorite style!
-                            </p>
-                            <p class="lead">
-                                <a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
-                                <a class="inherit" routerLink="/compatibility">Compatibility.</a>
-                            </p>
+                            <h2 class="mb-4 mainblue">Welcome to the Signature Generator Application!</h2>
+                            <div class="ms-3">
+                                <p class="lead">
+                                    In this Application you can create a brand new custom email signature fast and easy! 
+                                    Fill in the forms with your information and copy your favorite style!
+                                </p>
+                                <p class="lead">
+                                    <a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
+                                    <a class="inherit" routerLink="/compatibility">Compatibility.</a>
+                                </p>
+                            </div>
                         </div>
-
                     </section>
 
                     <!-- INFORMATION -->
                     <section>
-                        <app-expand-section
+                        <app-expand-window
                             *ngIf="!informationWindow" text="Information"
                             (windowHandler)="onWindowHandle('information')"
-                        ></app-expand-section>
+                        ></app-expand-window>
 
                         <div *ngIf="informationWindow" class="boxSection">
-
-                            <div class="row d-flex mb-4">
-                                <div class="col-9">
-                                    <h4>Signature Information</h4>
-                                </div>
-                                <div class="col d-flex flex-row-reverse">
-                                    <svg (click)="onWindowHandle('information')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up cursor-pointer" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
-                                    </svg>
-                                </div>
-                            </div>
+                        
+                            <app-collapse-window
+                                title="Signature Information"
+                                (windowHandler)="onWindowHandle('information')"
+                            ></app-collapse-window>
 
                             <div class="row">
                                 <div class="col-xl-6">
@@ -71,301 +66,307 @@ import { Component } from "@angular/core";
                     </section>
 
                     <!-- SOCIAL MEDIA -->
-                    <p *ngIf="!socialMediaWindow" (click)="onWindowHandle('socialMedia')" class="lead cursor-pointer expand-section">+ Social Media</p>
-                    <section *ngIf="socialMediaWindow" class="boxSection">
+                    <section>
+                        <app-expand-window
+                            *ngIf="!socialMediaWindow" text="Social Media"
+                            (windowHandler)="onWindowHandle('socialMedia')"
+                        ></app-expand-window>
 
-                        <div class="row d-flex mb-4">
-                            <div class="col-9">
-                                <h4>Social Media</h4>
+                        <div *ngIf="socialMediaWindow" class="boxSection">
+
+                            <app-collapse-window
+                                title="Social Media"
+                                (windowHandler)="onWindowHandle('socialMedia')"
+                            ></app-collapse-window>
+
+                            <p class="lead">1. Check the social media you wish to include in your signature</p>
+                            <div class="row">
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="website" class="form-check-input" type="checkbox" id="website">
+                                        <label class="noselect" for="website">Website</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="facebook" class="form-check-input" type="checkbox" id="facebook">
+                                        <label class="noselect" for="facebook">Facebook</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="instagram" class="form-check-input" type="checkbox" id="instagram">
+                                        <label class="noselect" for="instagram">Instagram</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="linkedin" class="form-check-input" type="checkbox" id="linkedin">
+                                        <label class="noselect" for="linkedin">LinkedIn</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input  [(ngModel)]="github" class="form-check-input" type="checkbox" id="github">
+                                        <label class="noselect" for="github">GitHub</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input  [(ngModel)]="twitter" class="form-check-input" type="checkbox" id="twitter">
+                                        <label class="noselect" for="twitter">Twitter</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input  [(ngModel)]="reddit" class="form-check-input" type="checkbox" id="reddit">
+                                        <label class="noselect" for="reddit">Reddit</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input  [(ngModel)]="threads" class="form-check-input" type="checkbox" id="threads">
+                                        <label class="noselect" for="threads">Threads</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <input  [(ngModel)]="linktree" class="form-check-input" type="checkbox" id="linktree">
+                                        <label class="noselect" for="linktree">Linktree</label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <label (click)="checkAllSocial()" class="noselect"><u>Check all</u></label>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-md-3">
+                                    <div class="form-check">
+                                        <label (click)="uncheckAllSocial()" class="noselect"><u>Uncheck all</u></label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col d-flex flex-row-reverse">
-                                <button (click)="onWindowHandle('socialMedia')" type="button" class="btn-close shadow-none mt-1"></button>
+
+                            <div *ngIf="this.website || this.facebook || this.instagram || this.linkedin || this.github || this.twitter || this.reddit || this.threads || this.linktree" class="row mt-4">
+                                <p class="lead">2. Paste your social media links below</p>
+                                <small>[ If you want to write the links manually, <u>make sure you include "https://" infront of them</u> - e.g. <strong>https://</strong>google.com or <strong>https://</strong>www.google.com ]</small>
+
+                                <div class="row mt-3">
+                                    <div class="col-sm-8">
+                                        <input *ngIf="website" [(ngModel)]="websiteLink" type="text" class="form-control" placeholder="Website">
+                                        <input *ngIf="facebook" [(ngModel)]="facebookLink" type="text" class="form-control" placeholder="Facebook">
+                                        <input *ngIf="instagram" [(ngModel)]="instagramLink" type="text" class="form-control" placeholder="Instagram">
+                                        <input *ngIf="linkedin" [(ngModel)]="linkedinLink" type="text" class="form-control" placeholder="LinkedIn">
+                                        <input *ngIf="github" [(ngModel)]="githubLink" type="text" class="form-control" placeholder="GitHub">
+                                        <input *ngIf="twitter" [(ngModel)]="twitterLink" type="text" class="form-control" placeholder="Twitter">
+                                        <input *ngIf="reddit" [(ngModel)]="redditLink" type="text" class="form-control" placeholder="Reddit">
+                                        <input *ngIf="threads" [(ngModel)]="threadsLink" type="text" class="form-control" placeholder="Threads">
+                                        <input *ngIf="linktree" [(ngModel)]="linktreeLink" type="text" class="form-control" placeholder="Linktree">
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
-
-                        <p class="lead">1. Check the social media you wish to include in your signature</p>
-                        <div class="row">
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input [(ngModel)]="website" class="form-check-input" type="checkbox" id="website">
-                                    <label class="noselect" for="website">Website</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input [(ngModel)]="facebook" class="form-check-input" type="checkbox" id="facebook">
-                                    <label class="noselect" for="facebook">Facebook</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input [(ngModel)]="instagram" class="form-check-input" type="checkbox" id="instagram">
-                                    <label class="noselect" for="instagram">Instagram</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input [(ngModel)]="linkedin" class="form-check-input" type="checkbox" id="linkedin">
-                                    <label class="noselect" for="linkedin">LinkedIn</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input  [(ngModel)]="github" class="form-check-input" type="checkbox" id="github">
-                                    <label class="noselect" for="github">GitHub</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input  [(ngModel)]="twitter" class="form-check-input" type="checkbox" id="twitter">
-                                    <label class="noselect" for="twitter">Twitter</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input  [(ngModel)]="reddit" class="form-check-input" type="checkbox" id="reddit">
-                                    <label class="noselect" for="reddit">Reddit</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input  [(ngModel)]="threads" class="form-check-input" type="checkbox" id="threads">
-                                    <label class="noselect" for="threads">Threads</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <input  [(ngModel)]="linktree" class="form-check-input" type="checkbox" id="linktree">
-                                    <label class="noselect" for="linktree">Linktree</label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <label (click)="checkAllSocial()" class="noselect"><u>Check all</u></label>
-                                </div>
-                            </div>
-                            <div class="col-5 col-md-3">
-                                <div class="form-check">
-                                    <label (click)="uncheckAllSocial()" class="noselect"><u>Uncheck all</u></label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div *ngIf="this.website || this.facebook || this.instagram || this.linkedin || this.github || this.twitter || this.reddit || this.threads || this.linktree" class="row mt-4">
-
-                            <p class="lead">2. Paste your social media links below</p>
-                            <small>[ If you want to write the links manually, <u>make sure you include "https://" infront of them</u> - e.g. <strong>https://</strong>google.com or <strong>https://</strong>www.google.com ]</small>
-
-                            <div class="row mt-3">
-                                <div class="col-sm-8">
-                                    <input *ngIf="website" [(ngModel)]="websiteLink" type="text" class="form-control" placeholder="Website">
-                                    <input *ngIf="facebook" [(ngModel)]="facebookLink" type="text" class="form-control" placeholder="Facebook">
-                                    <input *ngIf="instagram" [(ngModel)]="instagramLink" type="text" class="form-control" placeholder="Instagram">
-                                    <input *ngIf="linkedin" [(ngModel)]="linkedinLink" type="text" class="form-control" placeholder="LinkedIn">
-                                    <input *ngIf="github" [(ngModel)]="githubLink" type="text" class="form-control" placeholder="GitHub">
-                                    <input *ngIf="twitter" [(ngModel)]="twitterLink" type="text" class="form-control" placeholder="Twitter">
-                                    <input *ngIf="reddit" [(ngModel)]="redditLink" type="text" class="form-control" placeholder="Reddit">
-                                    <input *ngIf="threads" [(ngModel)]="threadsLink" type="text" class="form-control" placeholder="Threads">
-                                    <input *ngIf="linktree" [(ngModel)]="linktreeLink" type="text" class="form-control" placeholder="Linktree">
-                                </div>
-                            </div>
-                        </div>
-
                     </section>
 
                     <!-- PREFERENCES -->
-                    <p *ngIf="!preferencesWindow" (click)="onWindowHandle('preferences')" class="lead cursor-pointer expand-section">+ Signature Preferences </p>
-                    <section *ngIf="preferencesWindow" class="boxSection">
+                    <section>
+                        <app-expand-window
+                            *ngIf="!preferencesWindow" text="Signature Preferences"
+                            (windowHandler)="onWindowHandle('preferences')"
+                        ></app-expand-window>
 
-                        <div class="row d-flex mb-4">
-                            <div class="col-9">
-                                <h4>Signature Preferences</h4>
+                        <div *ngIf="preferencesWindow" class="boxSection">
+
+                            <app-collapse-window
+                                title="Signature Preferences"
+                                (windowHandler)="onWindowHandle('preferences')"
+                            ></app-collapse-window>
+
+                            <p *ngIf="!withoutLogo" class="lead mt-3 mb-3">1. Logo width</p>
+                            <div *ngIf="!withoutLogo" class="col">
+                                <input [disabled]="withoutLogo" [(ngModel)]="logoWidth"
+                                        type="range" class="form-range" min="30" max="200">
                             </div>
-                            <div class="col d-flex flex-row-reverse">
-                                <button (click)="onWindowHandle('preferences')" type="button" class="btn-close shadow-none mt-1"></button>
+                            <p *ngIf="!withoutLogo" class="mb-4">{{logoWidth}} pixels</p>
+
+                            <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '1' : '2'}}</span>. Horizontal line separator width</p>
+                            <div class="col">
+                                <input [disabled]="!lineSeparator" [(ngModel)]="lineWidth" 
+                                        type="range" class="form-range" min="30" max="200">
                             </div>
-                        </div>
+                            <p class="mb-4">{{lineWidth}} pixels</p>
+                            
+                            <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '2' : '3'}}</span>. Space between the social media icons</p>
+                            <div class="col">
+                                <input
+                                    [disabled]="!website && !facebook && !instagram && !linkedin && !github && !twitter && !reddit && !threads && !linktree" 
+                                    [(ngModel)]="socialIconSpace" type="range" class="form-range" min="4" max="15">
+                            </div>
+                            <p class="mb-4">{{socialIconSpace}} pixels</p>
 
-                        <p *ngIf="!withoutLogo" class="lead mt-3 mb-3">1. Logo width</p>
-                        <div *ngIf="!withoutLogo" class="col">
-                            <input [disabled]="withoutLogo" [(ngModel)]="logoWidth"
-                                    type="range" class="form-range" min="30" max="200">
                         </div>
-                        <p *ngIf="!withoutLogo" class="mb-4">{{logoWidth}} pixels</p>
-
-                        <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '1' : '2'}}</span>. Horizontal line separator width</p>
-                        <div class="col">
-                            <input [disabled]="!lineSeparator" [(ngModel)]="lineWidth" 
-                                    type="range" class="form-range" min="30" max="200">
-                        </div>
-                        <p class="mb-4">{{lineWidth}} pixels</p>
-                        
-                        <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '2' : '3'}}</span>. Space between the social media icons</p>
-                        <div class="col">
-                            <input
-                                [disabled]="!website && !facebook && !instagram && !linkedin && !github && !twitter && !reddit && !threads && !linktree" 
-                                [(ngModel)]="socialIconSpace" type="range" class="form-range" min="4" max="15">
-                        </div>
-                        <p class="mb-4">{{socialIconSpace}} pixels</p>
-
                     </section>
 
                     <!-- TYPOGRAPHY -->
-                    <p *ngIf="!typographyWindow" (click)="onWindowHandle('typography')" class="lead cursor-pointer expand-section">+ Typography</p>
-                    <section *ngIf="typographyWindow" class="boxSection">
+                    <section>
+                        <app-expand-window
+                            *ngIf="!typographyWindow" text="Typography"
+                            (windowHandler)="onWindowHandle('typography')"
+                        ></app-expand-window>
 
-                        <div class="row d-flex mb-4">
-                            <div class="col-9">
-                                <h4>Typography</h4>
+                        <div *ngIf="typographyWindow" class="boxSection">
+
+                            <app-collapse-window
+                                title="Typography"
+                                (windowHandler)="onWindowHandle('typography')"
+                            ></app-collapse-window>
+
+                            <p class="lead">1. Decorate your signature.</p>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="boldName" class="form-check-input" type="checkbox" id="boldName">
+                                        <label class="noselect" for="boldName"><strong>Bold</strong> Name & Surname</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="underlineName" class="form-check-input" type="checkbox" id="underlineName">
+                                        <label class="noselect" for="underlineName"><u>Underline</u> Name & Surname</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="capitaliseNameSurname" class="form-check-input" type="checkbox" id="capitaliseNameSurname">
+                                        <label class="noselect" for="capitaliseNameSurname">Capitalise Name & Surname</label>
+                                    </div>
+                                </div>
+                            </div>    
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="form-check">
+                                            <input [(ngModel)]="boldTitle" class="form-check-input" type="checkbox" id="boldTitle">
+                                            <label class="noselect" for="boldTitle"><strong>Bold</strong> Title</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="underlineTitle" class="form-check-input" type="checkbox" id="underlineTitle">
+                                        <label class="noselect" for="underlineTitle"><u>Underline</u> Title</label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="capitaliseTitle" class="form-check-input" type="checkbox" id="capitaliseTitle">
+                                        <label class="noselect" for="capitaliseTitle">Capitalise Title</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col d-flex flex-row-reverse">
-                                <button (click)="onWindowHandle('typography')" type="button" class="btn-close shadow-none mt-1"></button>
+                                
+                            <div class="row mb-4">
+                                <div class="col-xl-3">
+                                    <div class="form-check">
+                                        <input [(ngModel)]="lineSeparator" class="form-check-input" type="checkbox" id="line">
+                                        <label class="noselect" for="line">Line Separator</label>
+                                    </div>
+                                </div>
                             </div>
+
+                            <p class="lead">2. Pick your favorite font style.</p>
+
+                            <div class="row mb-4 noselect">
+                                <div class="col-block col-sm-6 col-md-3">
+                                    <div class="form-check lead">
+                                        <input [(ngModel)]="fontFamily" [value]="'helvetica'" class="form-check-input" type="radio" name="fonts" id="helvetica">
+                                        <label class="form-check-label helvetica" for="helvetica">Helvetica</label>
+                                    </div>
+                                </div>
+                                <div class="col-block col-sm-6 col-md-3">
+                                    <div class="form-check lead">
+                                        <input [(ngModel)]="fontFamily" [value]="'monospace'" class="form-check-input" type="radio" name="fonts" id="monospace">
+                                        <label class="form-check-label monospace" for="monospace">Monospace</label>
+                                    </div>
+                                </div>
+                                <div class="col-block col-sm-6 col-md-3">
+                                    <div class="form-check lead">
+                                        <input [(ngModel)]="fontFamily" [value]="'didot'" class="form-check-input" type="radio" name="fonts" id="didot">
+                                        <label class="form-check-label didot" for="didot">Didot</label>
+                                    </div>
+                                </div>
+                                <div class="col-block col-sm-6 col-md-3">
+                                    <div class="form-check lead">
+                                        <input [(ngModel)]="fontFamily" [value]="'futura'" class="form-check-input" type="radio" name="fonts" id="futura">
+                                        <label class="form-check-label futura" for="futura">Futura</label>
+                                    </div>
+                                </div>
+                                <div class="col-block col-sm-6 col-md-3">
+                                    <div class="form-check lead">
+                                        <input [(ngModel)]="fontFamily" [value]="'copperplate'" class="form-check-input" type="radio" name="fonts" id="copperplate">
+                                        <label class="form-check-label copperplate" for="copperplate">Copperplate</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="lead">3. Name & Surname font size.</p>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <input [(ngModel)]="nameSurnameFontSize" type="range" class="form-range" min="15" max="25">
+                                </div>
+                                <p class="mb-4">{{nameSurnameFontSize}} pixels</p>
+                            </div>
+
+                            <p class="lead">4. Title font size.</p>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <input [(ngModel)]="titleFontSize" type="range" class="form-range" min="9" max="20">
+                                </div>
+                                <p class="mb-4">{{titleFontSize}} pixels</p>
+                            </div>
+
+                            <p class="lead">5. Information font size.</p>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <input [(ngModel)]="informationFontSize" type="range" class="form-range" min="9" max="20">
+                                </div>
+                                <p class="mb-4">{{informationFontSize}} pixels</p>
+                            </div>
+
                         </div>
-
-                        <p class="lead">1. Decorate your signature.</p>
-
-                        <div class="row">
-                            <div class="col-xl-4">
-                                <div class="form-check">
-                                    <input [(ngModel)]="boldName" class="form-check-input" type="checkbox" id="boldName">
-                                    <label class="noselect" for="boldName"><strong>Bold</strong> Name & Surname</label>
-                                </div>
-                            </div>
-                            <div class="col-xl-4">
-                                <div class="form-check">
-                                    <input [(ngModel)]="underlineName" class="form-check-input" type="checkbox" id="underlineName">
-                                    <label class="noselect" for="underlineName"><u>Underline</u> Name & Surname</label>
-                                </div>
-                            </div>
-                            <div class="col-xl-4">
-                                <div class="form-check">
-                                    <input [(ngModel)]="capitaliseNameSurname" class="form-check-input" type="checkbox" id="capitaliseNameSurname">
-                                    <label class="noselect" for="capitaliseNameSurname">Capitalise Name & Surname</label>
-                                </div>
-                            </div>
-                        </div>    
-
-                        <div class="row">
-                            <div class="col-xl-4">
-                                <div class="form-check">
-                                        <input [(ngModel)]="boldTitle" class="form-check-input" type="checkbox" id="boldTitle">
-                                        <label class="noselect" for="boldTitle"><strong>Bold</strong> Title</label>
-                                </div>
-                            </div>
-                            <div class="col-xl-4">
-                                <div class="form-check">
-                                    <input [(ngModel)]="underlineTitle" class="form-check-input" type="checkbox" id="underlineTitle">
-                                    <label class="noselect" for="underlineTitle"><u>Underline</u> Title</label>
-                                </div>
-                            </div>
-                            <div class="col-xl-4">
-                                <div class="form-check">
-                                    <input [(ngModel)]="capitaliseTitle" class="form-check-input" type="checkbox" id="capitaliseTitle">
-                                    <label class="noselect" for="capitaliseTitle">Capitalise Title</label>
-                                </div>
-                            </div>
-                        </div>
-                            
-                        <div class="row mb-4">
-                            <div class="col-xl-3">
-                                <div class="form-check">
-                                    <input [(ngModel)]="lineSeparator" class="form-check-input" type="checkbox" id="line">
-                                    <label class="noselect" for="line">Line Separator</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="lead">2. Pick your favorite font style.</p>
-
-                        <div class="row mb-4 noselect">
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check lead">
-                                    <input [(ngModel)]="fontFamily" [value]="'helvetica'" class="form-check-input" type="radio" name="fonts" id="helvetica">
-                                    <label class="form-check-label helvetica" for="helvetica">Helvetica</label>
-                                </div>
-                            </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check lead">
-                                    <input [(ngModel)]="fontFamily" [value]="'monospace'" class="form-check-input" type="radio" name="fonts" id="monospace">
-                                    <label class="form-check-label monospace" for="monospace">Monospace</label>
-                                </div>
-                            </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check lead">
-                                    <input [(ngModel)]="fontFamily" [value]="'didot'" class="form-check-input" type="radio" name="fonts" id="didot">
-                                    <label class="form-check-label didot" for="didot">Didot</label>
-                                </div>
-                            </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check lead">
-                                    <input [(ngModel)]="fontFamily" [value]="'futura'" class="form-check-input" type="radio" name="fonts" id="futura">
-                                    <label class="form-check-label futura" for="futura">Futura</label>
-                                </div>
-                            </div>
-                            <div class="col-block col-sm-6 col-md-3">
-                                <div class="form-check lead">
-                                    <input [(ngModel)]="fontFamily" [value]="'copperplate'" class="form-check-input" type="radio" name="fonts" id="copperplate">
-                                    <label class="form-check-label copperplate" for="copperplate">Copperplate</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="lead">3. Name & Surname font size.</p>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <input [(ngModel)]="nameSurnameFontSize" type="range" class="form-range" min="15" max="25">
-                            </div>
-                            <p class="mb-4">{{nameSurnameFontSize}} pixels</p>
-                        </div>
-
-                        <p class="lead">4. Title font size.</p>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <input [(ngModel)]="titleFontSize" type="range" class="form-range" min="9" max="20">
-                            </div>
-                            <p class="mb-4">{{titleFontSize}} pixels</p>
-                        </div>
-
-                        <p class="lead">5. Information font size.</p>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <input [(ngModel)]="informationFontSize" type="range" class="form-range" min="9" max="20">
-                            </div>
-                            <p class="mb-4">{{informationFontSize}} pixels</p>
-                        </div>
-
                     </section>
 
                     <!-- COLOURS -->
-                    <p *ngIf="!coloursWindow" (click)="onWindowHandle('colours')" class="lead cursor-pointer expand-section">+ Colours</p>
-                    <section *ngIf="coloursWindow" class="boxSection">
+                    <section>
+                        <app-expand-window
+                            *ngIf="!coloursWindow" text="Colours"
+                            (windowHandler)="onWindowHandle('colours')"
+                        ></app-expand-window>
 
-                        <div class="row d-flex mb-4">
-                            <div class="col-9">
-                                <h4>Colours</h4>
-                            </div>
-                            <div class="col d-flex flex-row-reverse">
-                                <button (click)="onWindowHandle('colours')" type="button" class="btn-close shadow-none mt-1"></button>
-                            </div>
-                        </div>
+                        <div *ngIf="coloursWindow" class="boxSection">
 
-                        <div class="row">
+                            <app-collapse-window
+                                title="Colours"
+                                (windowHandler)="onWindowHandle('colours')"
+                            ></app-collapse-window>
 
-                            <div class="col-xl-6 mb-4">
-                                <label class="mb-2 lead" for="pickerA">Primary colour</label>
-                                <div><input class="mb-2" [(ngModel)]="textAColour" type="color" id="pickerA"></div>
-                                <p>{{textAColour}}</p>
-                                <label class="mb-2" for="colorA">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
-                                <input class="form-control" id="colorA" [(ngModel)]="textAColour" type="text" placeholder="#000000">
-                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 mb-4">
+                                    <label class="mb-2 lead" for="pickerA">Primary colour</label>
+                                    <div><input class="mb-2" [(ngModel)]="textAColour" type="color" id="pickerA"></div>
+                                    <p>{{textAColour}}</p>
+                                    <label class="mb-2" for="colorA">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
+                                    <input class="form-control" id="colorA" [(ngModel)]="textAColour" type="text" placeholder="#000000">
+                                </div>
 
-                            <div class="col-xl-6 mb-3">
-                                <label class="mb-2 lead" for="pickerB">Secondary colour</label>
-                                <div><input class="mb-2" [(ngModel)]="textBColour" type="color" id="pickerB"></div>
-                                <p>{{textBColour}}</p>
-                                <label class="mb-2" for="colorB">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
-                                <input class="form-control" id="colorB" [(ngModel)]="textBColour" type="text"placeholder="#000000">
+                                <div class="col-xl-6 mb-3">
+                                    <label class="mb-2 lead" for="pickerB">Secondary colour</label>
+                                    <div><input class="mb-2" [(ngModel)]="textBColour" type="color" id="pickerB"></div>
+                                    <p>{{textBColour}}</p>
+                                    <label class="mb-2" for="colorB">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
+                                    <input class="form-control" id="colorB" [(ngModel)]="textBColour" type="text"placeholder="#000000">
+                                </div>
                             </div>
 
                         </div>
@@ -378,7 +379,7 @@ import { Component } from "@angular/core";
 
                     <div class="boxSection">
                         <h4>Choose your favorite among these Signature Styles!</h4>
-                        <p class="mb-4">I'll be very happy if you <a class="inherit" href="">show me</a> what you've made!</p>
+                        <p class="mb-4">I'd love to <a class="inherit" href="">see</a> what you've created!</p>
 
                         <div class="row mb-5">
                             <div class="col">
@@ -413,9 +414,9 @@ import { Component } from "@angular/core";
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
 
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [logoWidth]="logoWidth"
+                                    [lineWidth]="lineWidth"
+                                    socialIconSpace={{socialIconSpace}}
 
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
@@ -468,9 +469,9 @@ import { Component } from "@angular/core";
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
 
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [logoWidth]="logoWidth"
+                                    [lineWidth]="lineWidth"
+                                    socialIconSpace={{socialIconSpace}}
 
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
@@ -523,9 +524,9 @@ import { Component } from "@angular/core";
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
 
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [logoWidth]="logoWidth"
+                                    [lineWidth]="lineWidth"
+                                    socialIconSpace={{socialIconSpace}}
 
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
@@ -578,9 +579,9 @@ import { Component } from "@angular/core";
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
 
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [logoWidth]="logoWidth"
+                                    [lineWidth]="lineWidth"
+                                    socialIconSpace={{socialIconSpace}}
 
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
@@ -614,6 +615,7 @@ import { Component } from "@angular/core";
         </div>
 
     `
+
 })
 export class HomeComponent {
 
@@ -627,11 +629,11 @@ export class HomeComponent {
         // this.email = 'nick.polizogopoulos@gmail.com';
         // this.location = 'Patras, Western Greece';
         // this.logoUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
-        this.informationWindow = false;
+        this.informationWindow = true;
         this.socialMediaWindow = true;
-        this.preferencesWindow = false;
-        this.typographyWindow = false;
-        this.coloursWindow = false;
+        this.preferencesWindow = true;
+        this.typographyWindow = true;
+        this.coloursWindow = true;
     }
 
     //* Signature Information
@@ -667,9 +669,9 @@ export class HomeComponent {
     linktreeLink?:string;
 
     //* Signature Preferences
-    socialIconSpace:string = '7';
+    logoWidth:number = 125;
     lineWidth:number = 30;
-    logoWidth:number = 110;
+    socialIconSpace:string = '7';
 
     //* Typography
     boldName:boolean = false;
@@ -779,4 +781,4 @@ export class HomeComponent {
 
     
 
-}
+}   

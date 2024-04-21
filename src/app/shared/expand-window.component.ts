@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 
 @Component({
-    selector: 'app-expand-section',
+    selector: 'app-expand-window',
     template: `
     
         <div class="row d-flex align-items-center expand-section">
@@ -33,7 +33,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
     
     `]
 })
-export class ExpandSection {
+export class ExpandWindowComponent {
 
     @Input() text?:string;
     @Output() windowHandler = new EventEmitter<void>();
