@@ -8,60 +8,70 @@ import { Component } from "@angular/core";
             <div class="row">
 
                 <!-- SETTINGS -->
-                <div class="col-block col-xl-6 mt-4">
+                <section class="col-block col-xl-6 mt-4">
 
-                    <!-- WELCOME SECTION -->
-                    <section class="boxSection">
-                        <h2 class="mb-3 mainblue">Welcome to the Signature Generator Application!</h2>
-                        <p class="lead">
-                            In this Application you can create a brand new custom email signature fast and easy! 
-                            Fill in the forms with your information and copy your favorite style!
-                        </p>
-                        <p class="lead">
-                            <a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
-                            <a class="inherit" routerLink="/compatibility">Browser Compatibility.</a>
-                        </p>
+                    <!-- WELCOME -->
+                    <section>
+                        <div class="boxSection">
+                            <h2 class="mb-3 mainblue">Welcome to the Signature Generator Application!</h2>
+                            <p class="lead">
+                                In this Application you can create a brand new custom email signature fast and easy! 
+                                Fill in the forms with your information and copy your favorite style!
+                            </p>
+                            <p class="lead">
+                                <a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
+                                <a class="inherit" routerLink="/compatibility">Compatibility.</a>
+                            </p>
+                        </div>
 
                     </section>
 
-                    <!-- INFORMATION INPUT FIELDS -->
-                    <p *ngIf="!informationWindow" (click)="panelClose('information')" class="lead cursor-pointer expand-section">+ Signature Information</p>
-                    <section *ngIf="informationWindow" class="boxSection">
+                    <!-- INFORMATION -->
+                    <section>
+                        <app-expand-section
+                            *ngIf="!informationWindow" text="Information"
+                            (windowHandler)="onWindowHandle('information')"
+                        ></app-expand-section>
 
-                        <div class="row d-flex mb-4">
-                            <div class="col-9">
-                                <h4>Signature Information</h4>
-                            </div>
-                            <div class="col d-flex flex-row-reverse">
-                                <button (click)="panelClose('information')" type="button" class="btn-close shadow-none mt-1"></button>
-                            </div>
-                        </div>
+                        <div *ngIf="informationWindow" class="boxSection">
 
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <input (input)="onUpdateName($event)" type="text" class="form-control" placeholder="Name">
-                                <input (input)="onUpdateSurname($event)"  type="text" class="form-control" placeholder="Surname">
-                                <input (input)="onUpdateTitle($event)" type="text" class="form-control" placeholder="Title">
-                                <input (input)="onUpdateLogoUrl($event)" type="text" class="form-control" placeholder="{{withoutLogo ? '-' : 'Logo url'}}" [disabled]="withoutLogo">
-                            </div>
-                            <div class="col-xl-6">
-                                <input (input)="onUpdatePhone($event)" type="text" class="form-control" placeholder="Phone">
-                                <input (input)="onUpdateEmail($event)" type="text" class="form-control" placeholder="Email">
-                                <input (input)="onUpdateLocation($event)" type="text" class="form-control" placeholder="Location">
-                                <div class="form-check noselect">
-                                    <input [(ngModel)]="withoutLogo" class="form-check-input" type="checkbox" id="noLogoCheck">
-                                    <label class="form-check-label" for="noLogoCheck">Without logo</label>
+                            <div class="row d-flex mb-4">
+                                <div class="col-9">
+                                    <h4>Signature Information</h4>
+                                </div>
+                                <div class="col d-flex flex-row-reverse">
+                                    <svg (click)="onWindowHandle('information')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up cursor-pointer" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+                                    </svg>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <input (input)="onUpdateName($event)" type="text" class="form-control" placeholder="Name">
+                                    <input (input)="onUpdateSurname($event)"  type="text" class="form-control" placeholder="Surname">
+                                    <input (input)="onUpdateTitle($event)" type="text" class="form-control" placeholder="Title">
+                                    <input (input)="onUpdateLogoUrl($event)" type="text" class="form-control" placeholder="{{withoutLogo ? '-' : 'Logo url'}}" [disabled]="withoutLogo">
+                                </div>
+                                <div class="col-xl-6">
+                                    <input (input)="onUpdatePhone($event)" type="text" class="form-control" placeholder="Phone">
+                                    <input (input)="onUpdateEmail($event)" type="text" class="form-control" placeholder="Email">
+                                    <input (input)="onUpdateLocation($event)" type="text" class="form-control" placeholder="Location">
+                                    <div class="form-check noselect">
+                                        <input [(ngModel)]="withoutLogo" class="form-check-input" type="checkbox" id="noLogoCheck">
+                                        <label class="form-check-label" for="noLogoCheck">Without logo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p *ngIf="withoutLogo" class="mt-3 text-muted fst-italic">
+                                <span class="lead text-danger">*</span>
+                                Styles 1. Basic and 2. Vertical, are the same without the logo.
+                            </p>
                         </div>
-                        <p *ngIf="withoutLogo" class="mt-3 text-muted fst-italic">
-                            <span class="lead text-danger">*</span>
-                            Styles 1. Basic and 2. Vertical, are the same without the logo.
-                        </p>
                     </section>
 
                     <!-- SOCIAL MEDIA -->
-                    <p *ngIf="!socialMediaWindow" (click)="panelClose('socialMedia')" class="lead cursor-pointer expand-section">+ Social Media</p>
+                    <p *ngIf="!socialMediaWindow" (click)="onWindowHandle('socialMedia')" class="lead cursor-pointer expand-section">+ Social Media</p>
                     <section *ngIf="socialMediaWindow" class="boxSection">
 
                         <div class="row d-flex mb-4">
@@ -69,7 +79,7 @@ import { Component } from "@angular/core";
                                 <h4>Social Media</h4>
                             </div>
                             <div class="col d-flex flex-row-reverse">
-                                <button (click)="panelClose('socialMedia')" type="button" class="btn-close shadow-none mt-1"></button>
+                                <button (click)="onWindowHandle('socialMedia')" type="button" class="btn-close shadow-none mt-1"></button>
                             </div>
                         </div>
 
@@ -163,8 +173,8 @@ import { Component } from "@angular/core";
 
                     </section>
 
-                    <!-- SIGNATURE PREFERENCES -->
-                    <p *ngIf="!preferencesWindow" (click)="panelClose('preferences')" class="lead cursor-pointer expand-section">+ Signature Preferences </p>
+                    <!-- PREFERENCES -->
+                    <p *ngIf="!preferencesWindow" (click)="onWindowHandle('preferences')" class="lead cursor-pointer expand-section">+ Signature Preferences </p>
                     <section *ngIf="preferencesWindow" class="boxSection">
 
                         <div class="row d-flex mb-4">
@@ -172,14 +182,14 @@ import { Component } from "@angular/core";
                                 <h4>Signature Preferences</h4>
                             </div>
                             <div class="col d-flex flex-row-reverse">
-                                <button (click)="panelClose('preferences')" type="button" class="btn-close shadow-none mt-1"></button>
+                                <button (click)="onWindowHandle('preferences')" type="button" class="btn-close shadow-none mt-1"></button>
                             </div>
                         </div>
 
                         <p *ngIf="!withoutLogo" class="lead mt-3 mb-3">1. Logo width</p>
                         <div *ngIf="!withoutLogo" class="col">
                             <input [disabled]="withoutLogo" [(ngModel)]="logoWidth"
-                                    type="range" class="form-range" min="70" max="200">
+                                    type="range" class="form-range" min="30" max="200">
                         </div>
                         <p *ngIf="!withoutLogo" class="mb-4">{{logoWidth}} pixels</p>
 
@@ -201,7 +211,7 @@ import { Component } from "@angular/core";
                     </section>
 
                     <!-- TYPOGRAPHY -->
-                    <p *ngIf="!typographyWindow" (click)="panelClose('typography')" class="lead cursor-pointer expand-section">+ Typography</p>
+                    <p *ngIf="!typographyWindow" (click)="onWindowHandle('typography')" class="lead cursor-pointer expand-section">+ Typography</p>
                     <section *ngIf="typographyWindow" class="boxSection">
 
                         <div class="row d-flex mb-4">
@@ -209,7 +219,7 @@ import { Component } from "@angular/core";
                                 <h4>Typography</h4>
                             </div>
                             <div class="col d-flex flex-row-reverse">
-                                <button (click)="panelClose('typography')" type="button" class="btn-close shadow-none mt-1"></button>
+                                <button (click)="onWindowHandle('typography')" type="button" class="btn-close shadow-none mt-1"></button>
                             </div>
                         </div>
 
@@ -317,7 +327,7 @@ import { Component } from "@angular/core";
                             <p class="mb-4">{{titleFontSize}} pixels</p>
                         </div>
 
-                        <p class="lead">6. Information font size.</p>
+                        <p class="lead">5. Information font size.</p>
                         <div class="row mb-4">
                             <div class="col">
                                 <input [(ngModel)]="informationFontSize" type="range" class="form-range" min="9" max="20">
@@ -328,7 +338,7 @@ import { Component } from "@angular/core";
                     </section>
 
                     <!-- COLOURS -->
-                    <p *ngIf="!coloursWindow" (click)="panelClose('colours')" class="lead cursor-pointer expand-section">+ Colours</p>
+                    <p *ngIf="!coloursWindow" (click)="onWindowHandle('colours')" class="lead cursor-pointer expand-section">+ Colours</p>
                     <section *ngIf="coloursWindow" class="boxSection">
 
                         <div class="row d-flex mb-4">
@@ -336,56 +346,53 @@ import { Component } from "@angular/core";
                                 <h4>Colours</h4>
                             </div>
                             <div class="col d-flex flex-row-reverse">
-                                <button (click)="panelClose('colours')" type="button" class="btn-close shadow-none mt-1"></button>
+                                <button (click)="onWindowHandle('colours')" type="button" class="btn-close shadow-none mt-1"></button>
                             </div>
                         </div>
 
                         <div class="row">
 
                             <div class="col-xl-6 mb-4">
-                                <!-- <div class="col-xl-9"> -->
-                                    <!-- <h4 class="mb-3">Primary colour</h4> -->
-                                    <label class="mb-2 lead" for="pickerA">Primary colour</label>
-                                    <div><input class="mb-2" [(ngModel)]="textAColour" type="color" id="pickerA"></div>
-                                    <p>{{textAColour}}</p>
-                                    <label class="mb-2" for="colorA">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
-                                    <input class="form-control" id="colorA" [(ngModel)]="textAColour" type="text" placeholder="#000000">
-                                <!-- </div> -->
+                                <label class="mb-2 lead" for="pickerA">Primary colour</label>
+                                <div><input class="mb-2" [(ngModel)]="textAColour" type="color" id="pickerA"></div>
+                                <p>{{textAColour}}</p>
+                                <label class="mb-2" for="colorA">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
+                                <input class="form-control" id="colorA" [(ngModel)]="textAColour" type="text" placeholder="#000000">
                             </div>
 
                             <div class="col-xl-6 mb-3">
-                                <!-- <div class="col-xl-9"> -->
-                                    <!-- <h4 class="mb-3">Secondary colour</h4> -->
-                                    <label class="mb-2 lead" for="pickerB">Secondary colour</label>
-                                    <div><input class="mb-2" [(ngModel)]="textBColour" type="color" id="pickerB"></div>
-                                    <p>{{textBColour}}</p>
-                                    <label class="mb-2" for="colorB">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
-                                    <input class="form-control" id="colorB" [(ngModel)]="textBColour" type="text"placeholder="#000000">
-                                <!-- </div> -->
+                                <label class="mb-2 lead" for="pickerB">Secondary colour</label>
+                                <div><input class="mb-2" [(ngModel)]="textBColour" type="color" id="pickerB"></div>
+                                <p>{{textBColour}}</p>
+                                <label class="mb-2" for="colorB">Specify your color <span class="form-text ms-3">[ make sure you include the hashtag # symbol - e.g. #1e2f5a ]</span></label>
+                                <input class="form-control" id="colorB" [(ngModel)]="textBColour" type="text"placeholder="#000000">
                             </div>
 
                         </div>
                     </section>
 
-                </div>
+                </section>
 
                 <!-- SIGNATURES -->
-                <div class="col-block col-xl-6 mt-4">
+                <section class="col-block col-xl-6 mt-4">
 
-                    <section class="boxSection">
-                        <h4 class="mb-4">Choose your favorite among these Signature Styles!</h4>
+                    <div class="boxSection">
+                        <h4>Choose your favorite among these Signature Styles!</h4>
+                        <p class="mb-4">I'll be very happy if you <a class="inherit" href="">show me</a> what you've made!</p>
 
                         <div class="row mb-5">
                             <div class="col">
                                 <p class="lead">1. Basic</p>
                                 <app-first-style
-                                    logoUrl="{{logoUrl}}"
                                     name="{{name}}"
                                     surname="{{surname}}"
                                     title="{{title}}"
                                     phone="{{phone}}"
                                     email="{{email}}"
                                     location="{{location}}"
+                                    logoUrl="{{logoUrl}}"
+                                    [withoutLogo]="withoutLogo"
+
                                     [website]="website"
                                     [facebook]="facebook"
                                     [instagram]="instagram"
@@ -395,6 +402,7 @@ import { Component } from "@angular/core";
                                     [reddit]="reddit"
                                     [threads]="threads"
                                     [linktree]="linktree"
+
                                     websiteLink="{{websiteLink}}"
                                     facebookLink="{{facebookLink}}"
                                     instagramLink="{{instagramLink}}"
@@ -404,23 +412,25 @@ import { Component } from "@angular/core";
                                     redditLink="{{redditLink}}"
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
+
+                                    socialIconSpace={{socialIconSpace}}
+                                    [lineWidth]="lineWidth"
+                                    [logoWidth]="logoWidth"
+
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
                                     [underlineName]="underlineName"
                                     [underlineTitle]="underlineTitle"
-                                    [lineSeparator]="lineSeparator"
-                                    [textAColour]="textAColour"
-                                    [textBColour]="textBColour"
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [capitaliseNameSurname]="capitaliseNameSurname"
                                     [capitaliseTitle]="capitaliseTitle"
                                     [nameSurnameFontSize]="nameSurnameFontSize"
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
-                                    [withoutLogo]="withoutLogo"
+                                    [lineSeparator]="lineSeparator"
                                     fontFamily="{{fontFamily}}"
-                                    [logoWidth]="logoWidth"
+
+                                    [textAColour]="textAColour"
+                                    [textBColour]="textBColour"
                                 ></app-first-style>
                             </div>
                         </div>
@@ -429,13 +439,15 @@ import { Component } from "@angular/core";
                             <div class="col">
                                 <p class="lead">2. Vertical</p>
                                 <app-second-style
-                                    logoUrl="{{logoUrl}}"
                                     name="{{name}}"
                                     surname="{{surname}}"
                                     title="{{title}}"
                                     phone="{{phone}}"
                                     email="{{email}}"
                                     location="{{location}}"
+                                    logoUrl="{{logoUrl}}"
+                                    [withoutLogo]="withoutLogo"
+
                                     [website]="website"
                                     [facebook]="facebook"
                                     [instagram]="instagram"
@@ -445,6 +457,7 @@ import { Component } from "@angular/core";
                                     [reddit]="reddit"
                                     [threads]="threads"
                                     [linktree]="linktree"
+
                                     websiteLink="{{websiteLink}}"
                                     facebookLink="{{facebookLink}}"
                                     instagramLink="{{instagramLink}}"
@@ -454,23 +467,25 @@ import { Component } from "@angular/core";
                                     redditLink="{{redditLink}}"
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
+
+                                    socialIconSpace={{socialIconSpace}}
+                                    [lineWidth]="lineWidth"
+                                    [logoWidth]="logoWidth"
+
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
                                     [underlineName]="underlineName"
                                     [underlineTitle]="underlineTitle"
-                                    [lineSeparator]="lineSeparator"
-                                    [textAColour]="textAColour"
-                                    [textBColour]="textBColour"
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [capitaliseNameSurname]="capitaliseNameSurname"
                                     [capitaliseTitle]="capitaliseTitle"
                                     [nameSurnameFontSize]="nameSurnameFontSize"
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
-                                    [withoutLogo]="withoutLogo"
+                                    [lineSeparator]="lineSeparator"
                                     fontFamily="{{fontFamily}}"
-                                    [logoWidth]="logoWidth"
+
+                                    [textAColour]="textAColour"
+                                    [textBColour]="textBColour"
                                 ></app-second-style>
                             </div>
                         </div>
@@ -479,13 +494,15 @@ import { Component } from "@angular/core";
                             <div class="col">
                                 <p class="lead">3. Vertical Centered</p>
                                 <app-third-style
-                                    logoUrl="{{logoUrl}}"
                                     name="{{name}}"
                                     surname="{{surname}}"
                                     title="{{title}}"
                                     phone="{{phone}}"
                                     email="{{email}}"
                                     location="{{location}}"
+                                    logoUrl="{{logoUrl}}"
+                                    [withoutLogo]="withoutLogo"
+
                                     [website]="website"
                                     [facebook]="facebook"
                                     [instagram]="instagram"
@@ -495,6 +512,7 @@ import { Component } from "@angular/core";
                                     [reddit]="reddit"
                                     [threads]="threads"
                                     [linktree]="linktree"
+
                                     websiteLink="{{websiteLink}}"
                                     facebookLink="{{facebookLink}}"
                                     instagramLink="{{instagramLink}}"
@@ -504,23 +522,25 @@ import { Component } from "@angular/core";
                                     redditLink="{{redditLink}}"
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
+
+                                    socialIconSpace={{socialIconSpace}}
+                                    [lineWidth]="lineWidth"
+                                    [logoWidth]="logoWidth"
+
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
                                     [underlineName]="underlineName"
                                     [underlineTitle]="underlineTitle"
-                                    [lineSeparator]="lineSeparator"
-                                    [textAColour]="textAColour"
-                                    [textBColour]="textBColour"
-                                    socialIconSpace={{socialIconSpace}}
-                                    [lineWidth]="lineWidth"
                                     [capitaliseNameSurname]="capitaliseNameSurname"
                                     [capitaliseTitle]="capitaliseTitle"
                                     [nameSurnameFontSize]="nameSurnameFontSize"
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
-                                    [withoutLogo]="withoutLogo"
+                                    [lineSeparator]="lineSeparator"
                                     fontFamily="{{fontFamily}}"
-                                    [logoWidth]="logoWidth"
+
+                                    [textAColour]="textAColour"
+                                    [textBColour]="textBColour"
                                 ></app-third-style>
                             </div>
                         </div>
@@ -529,13 +549,15 @@ import { Component } from "@angular/core";
                             <div class="col">
                                 <p class="lead">4. Simple</p>
                                 <app-fourth-style
-                                    logoUrl="{{logoUrl}}"
                                     name="{{name}}"
                                     surname="{{surname}}"
                                     title="{{title}}"
                                     phone="{{phone}}"
                                     email="{{email}}"
                                     location="{{location}}"
+                                    logoUrl="{{logoUrl}}"
+                                    [withoutLogo]="withoutLogo"
+
                                     [website]="website"
                                     [facebook]="facebook"
                                     [instagram]="instagram"
@@ -545,6 +567,7 @@ import { Component } from "@angular/core";
                                     [reddit]="reddit"
                                     [threads]="threads"
                                     [linktree]="linktree"
+
                                     websiteLink="{{websiteLink}}"
                                     facebookLink="{{facebookLink}}"
                                     instagramLink="{{instagramLink}}"
@@ -554,22 +577,25 @@ import { Component } from "@angular/core";
                                     redditLink="{{redditLink}}"
                                     threadsLink="{{threadsLink}}"
                                     linktreeLink="{{linktreeLink}}"
+
+                                    socialIconSpace={{socialIconSpace}}
+                                    [lineWidth]="lineWidth"
+                                    [logoWidth]="logoWidth"
+
                                     [boldName]="boldName"
                                     [boldTitle]="boldTitle"
                                     [underlineName]="underlineName"
                                     [underlineTitle]="underlineTitle"
-                                    [lineSeparator]="lineSeparator"
-                                    [textAColour]="textAColour"
-                                    [textBColour]="textBColour"
-                                    socialIconSpace={{socialIconSpace}}
                                     [capitaliseNameSurname]="capitaliseNameSurname"
                                     [capitaliseTitle]="capitaliseTitle"
                                     [nameSurnameFontSize]="nameSurnameFontSize"
                                     [titleFontSize]="titleFontSize"
                                     [informationFontSize]="informationFontSize"
-                                    [withoutLogo]="withoutLogo"
+                                    [lineSeparator]="lineSeparator"
                                     fontFamily="{{fontFamily}}"
-                                    [logoWidth]="logoWidth"
+
+                                    [textAColour]="textAColour"
+                                    [textBColour]="textBColour"
                                 ></app-fourth-style>
                             </div>
                         </div>
@@ -580,9 +606,9 @@ import { Component } from "@angular/core";
                                 <app-placeholder-signature></app-placeholder-signature>
                             </div>
                         </div>
-                    </section>
+                    </div>
 
-                </div>
+                </section>
                 
             </div>
         </div>
@@ -592,22 +618,23 @@ import { Component } from "@angular/core";
 export class HomeComponent {
 
     ngOnInit() {
-        this.checkAllSocial();
-    //     this.lineSeparator = true;
-    //     this.name = 'Nick';
-    //     this.surname = 'Polizogopoulos';
-    //     this.title = 'Front - End Software Developer';
-    //     this.phone = '+30 698 235 1857';
-    //     this.email = 'nick.polizogopoulos@gmail.com';
-    //     this.location = 'Patras, Western Greece';
-    //     this.logoUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
-    this.informationWindow = false;
-    this.socialMediaWindow = false;
-    this.preferencesWindow = false;
-    this.typographyWindow = true;
-    this.coloursWindow = false;
+        // this.checkAllSocial();
+        // this.lineSeparator = true;
+        // this.name = 'Nick';
+        // this.surname = 'Polizogopoulos';
+        // this.title = 'Front - End Software Developer';
+        // this.phone = '+30 698 235 1857';
+        // this.email = 'nick.polizogopoulos@gmail.com';
+        // this.location = 'Patras, Western Greece';
+        // this.logoUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
+        this.informationWindow = false;
+        this.socialMediaWindow = true;
+        this.preferencesWindow = false;
+        this.typographyWindow = false;
+        this.coloursWindow = false;
     }
 
+    //* Signature Information
     name:string = 'Name';
     surname:string = 'Surname';
     title:string = 'Position title';
@@ -617,6 +644,7 @@ export class HomeComponent {
     logoUrl:string = '../../assets/signature-generator-logo.png';
     withoutLogo:boolean = false;
 
+    //* Social Media
     website:boolean = false;
     facebook:boolean = false;
     instagram:boolean = false;
@@ -627,6 +655,7 @@ export class HomeComponent {
     threads:boolean = false;
     linktree:boolean = false;
 
+    //* Social Media Links
     websiteLink?:string;
     facebookLink?:string;
     instagramLink?:string;
@@ -637,35 +666,39 @@ export class HomeComponent {
     threadsLink?:string;
     linktreeLink?:string;
 
+    //* Signature Preferences
+    socialIconSpace:string = '7';
+    lineWidth:number = 30;
+    logoWidth:number = 110;
+
+    //* Typography
     boldName:boolean = false;
     boldTitle:boolean = false;
     underlineName:boolean = false;
     underlineTitle:boolean = false;
     capitaliseNameSurname:boolean = false;
     capitaliseTitle:boolean = false;
-
-    textAColour:string = '#000000';
-    textBColour:string = '#000000';
-    socialIconSpace:string = '7';
-    lineSeparator:boolean = true;
-    lineWidth:number = 30;
-    logoWidth:number = 140;
-
-    // *FONT AND LOGO SIZE
     nameSurnameFontSize:number = 19;
     titleFontSize:number = 14;
     informationFontSize:number = 14;
-
+    lineSeparator:boolean = true;
     fontFamily:string = 'helvetica';
     
-    spinnerLoading:boolean = false;
-    copyResponse:boolean = false;
+    //* Colours
+    textAColour:string = '#000000';
+    textBColour:string = '#000000';
 
+    //* Settings Windows
     informationWindow:boolean = true;
     socialMediaWindow:boolean = true;
     preferencesWindow:boolean = true;
     typographyWindow:boolean = true;
     coloursWindow:boolean = true;
+
+    //* Copying Spinners
+    spinnerLoading:boolean = false;
+    copyResponse:boolean = false;
+
 
     onUpdateName( event:Event ):void {
         this.name = (<HTMLInputElement>event.target).value;
@@ -719,7 +752,7 @@ export class HomeComponent {
         this.linktree = true;
     }
     
-    panelClose( id:string ):void {
+    onWindowHandle( id:string ):void {
         switch(id) {
             case 'information': { 
                 this.informationWindow = !this.informationWindow;
@@ -743,5 +776,7 @@ export class HomeComponent {
             }
         }
     }
+
+    
 
 }

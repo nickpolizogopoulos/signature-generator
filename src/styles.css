@@ -77,17 +77,19 @@ h1,h2,h3,h4,h5 {
 .boxSection {
     background-color: rgb(255, 255, 255);
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid rgba(21, 33, 64, 0.168);
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
     margin-bottom: 30px;
 }
+
 .expand-section {
     background-color: white;
     border-radius: 10px;
     border: 1px solid rgba(21, 33, 64, 0.168);
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.113);
-    padding: 7px 15px;
+    padding: 15px 9px;
+    margin: 0px 0px 20px;
     user-select: none;
 }
 
@@ -118,9 +120,16 @@ h1,h2,h3,h4,h5 {
     background: rgb(30, 47, 90);
 }
 
-.redbg {
+/* .redbg {
     background-color: rgb(209, 88, 88);
 }
 .bluebg {
     background-color: rgb(63, 100, 169);
+} */
+
+.bi-chevron-up {
+    color: grey;
+}
+.bi-chevron-up:hover {
+    color: black;
 }

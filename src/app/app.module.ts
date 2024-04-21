@@ -17,6 +17,7 @@ import { SecondStyleComponent } from './components/signature-styles/second-style
 import { ThirdStyleComponent } from './components/signature-styles/third-style.component';
 import { FourthStyleComponent } from './components/signature-styles/fourth-style.component';
 import { PlaceholderSignatureComponent } from './components/signature-styles/placeholder-home.component';
+import { ExpandSection } from './shared/expand-section.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PlaceholderSignatureComponent } from './components/signature-styles/pla
     ThirdStyleComponent,
     FourthStyleComponent,
     PlaceholderSignatureComponent,
+    ExpandSection
   ],
   imports: [
     BrowserModule,

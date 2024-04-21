@@ -12,7 +12,7 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
         <table #firstSignature cellspacing="0" cellpadding="4" style="background-color: white; font-family: {{ passSelectedFont() }}, sans-serif; line-height: 1.3;" class="signatureBox">
             <tr style="background-color: transparent">
                 <td *ngIf="!withoutLogo" style="vertical-align: top;">
-                    <img width="{{logoWidth}}" height="auto" src="{{logoUrl}}" alt="{{logoUrl ? 'logo' : 'Your logo'}}">
+                    <img width="{{logoWidth}}" height="auto" src="{{logoUrl}}" alt="logo">
                 </td>
                 <td *ngIf="!withoutLogo"></td>
                 <td style="vertical-align: top;">

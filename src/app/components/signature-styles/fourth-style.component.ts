@@ -9,7 +9,7 @@ import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
     selector: 'app-fourth-style',
     template: `
     
-        <table #fourthSignature class="signatureBox" cellspacing="0" cellpadding="4" style="background-color: white; border-collapse: collapse; font-size: 13.1px;">
+        <table #fourthSignature class="signatureBox" cellspacing="0" cellpadding="4" style="background-color: white; border-collapse: collapse;">
             <tr *ngIf="!withoutLogo">
                 <td>
                     <img src="{{logoUrl}}" width="{{logoWidth}}" height="auto" alt="logo">
