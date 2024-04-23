@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar.component';
 import { AboutComponent } from './components/about.component';
 import { CompatibilityComponent } from './components/compatibility.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+import { FooterComponent } from './components/footer.component';
 
 import { FirstStyleComponent } from './components/signature-styles/first-style.component';
 import { SecondStyleComponent } from './components/signature-styles/second-style.component';
@@ -29,6 +30,7 @@ import { CollapseWindowComponent } from './shared/collapse-window.component';
     AboutComponent,
     CompatibilityComponent,
     PageNotFoundComponent,
+    FooterComponent,
     FirstStyleComponent,
     SecondStyleComponent,
     ThirdStyleComponent,

@@ -20,8 +20,8 @@ import { Component } from "@angular/core";
                                     Fill in the forms with your information and copy your favorite style!
                                 </p>
                                 <p class="lead">
-                                    <a class="inherit" routerLink="/about">Learn more</a> about this Application and the 
-                                    <a class="inherit" routerLink="/compatibility">Compatibility.</a>
+                                    <a routerLink="/about">Learn more</a> about this Application and the 
+                                    <a routerLink="/compatibility">Compatibility.</a>
                                 </p>
                             </div>
                         </div>
@@ -183,21 +183,21 @@ import { Component } from "@angular/core";
                                 (windowHandler)="onWindowHandle('preferences')"
                             ></app-collapse-window>
 
-                            <p *ngIf="!withoutLogo" class="lead mt-3 mb-3">1. Logo width</p>
-                            <div *ngIf="!withoutLogo" class="col">
+                            <p class="lead mt-3 mb-3">1. Logo width <span class="ms-2 fst-italic">{{ withoutLogo ? '( logo is disabled )' : '' }}</span></p>
+                            <div class="col">
                                 <input [disabled]="withoutLogo" [(ngModel)]="logoWidth"
                                         type="range" class="form-range" min="30" max="200">
                             </div>
                             <p *ngIf="!withoutLogo" class="mb-4">{{logoWidth}} pixels</p>
 
-                            <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '1' : '2'}}</span>. Horizontal line separator width</p>
+                            <p class="lead mt-3 mb-3">2. Horizontal line separator width</p>
                             <div class="col">
                                 <input [disabled]="!lineSeparator" [(ngModel)]="lineWidth" 
                                         type="range" class="form-range" min="30" max="200">
                             </div>
                             <p class="mb-4">{{lineWidth}} pixels</p>
                             
-                            <p class="lead mt-3 mb-3"><span>{{withoutLogo ? '2' : '3'}}</span>. Space between the social media icons</p>
+                            <p class="lead mt-3 mb-3">3. Space between the social media icons</p>
                             <div class="col">
                                 <input
                                     [disabled]="!website && !facebook && !instagram && !linkedin && !github && !twitter && !reddit && !threads && !linktree" 
@@ -379,7 +379,9 @@ import { Component } from "@angular/core";
 
                     <div class="boxSection">
                         <h4>Choose your favorite among these Signature Styles!</h4>
-                        <p class="mb-4">I'd love to <a class="inherit" href="">see</a> what you've created!</p>
+                        <p class="mb-4">
+                            I'd love to <a class="inherit" href="mailto:nikos___@live.nl">see</a> what you've created!
+                        </p>
 
                         <div class="row mb-5">
                             <div class="col">
@@ -615,26 +617,8 @@ import { Component } from "@angular/core";
         </div>
 
     `
-
 })
 export class HomeComponent {
-
-    ngOnInit() {
-        // this.checkAllSocial();
-        // this.lineSeparator = true;
-        // this.name = 'Nick';
-        // this.surname = 'Polizogopoulos';
-        // this.title = 'Front - End Software Developer';
-        // this.phone = '+30 698 235 1857';
-        // this.email = 'nick.polizogopoulos@gmail.com';
-        // this.location = 'Patras, Western Greece';
-        // this.logoUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
-        this.informationWindow = true;
-        this.socialMediaWindow = true;
-        this.preferencesWindow = true;
-        this.typographyWindow = true;
-        this.coloursWindow = true;
-    }
 
     //* Signature Information
     name:string = 'Name';
@@ -778,7 +762,5 @@ export class HomeComponent {
             }
         }
     }
-
-    
 
 }   

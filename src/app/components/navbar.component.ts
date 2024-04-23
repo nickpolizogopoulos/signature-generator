@@ -34,7 +34,7 @@ import { Component } from "@angular/core";
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item ms-3">
-                                <a class="nav-link" routerLink="#">
+                                <a class="nav-link" href="https://github.com/nickpolizogopoulos/signature-generator" target="_blank">
                                     Source Code
                                     <span style="margin-left: 17px;" class="top-0 start-100 translate-middle badge rounded-pill bg-danger">free!</span>
                                 </a>
@@ -47,7 +47,6 @@ import { Component } from "@angular/core";
         </div>
 
     `,
-
 styles: [`
 
     .navbar-toggler {

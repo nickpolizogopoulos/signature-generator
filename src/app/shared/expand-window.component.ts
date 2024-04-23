@@ -1,4 +1,9 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { 
+    Component, 
+    EventEmitter, 
+    Input, 
+    Output 
+} from "@angular/core";
 
 
 @Component({
@@ -15,7 +20,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
                 </span>
             </div>
             <div class="col d-flex flex-row-reverse">
-                <svg (click)="onWindowHandler()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-down cursor-pointer" viewBox="0 -2 16 16">
+                <svg (click)="onWindowHandler()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-down" viewBox="0 -2 16 16">
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
                 </svg>
             </div>
@@ -26,7 +31,9 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
     
         .bi-chevron-down {
             color: grey;
+            cursor: pointer;
         }
+
         .bi-chevron-down:hover {
             color: black;
         }
@@ -35,7 +42,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 })
 export class ExpandWindowComponent {
 
-    @Input() text?:string;
+    @Input() text!:string;
     @Output() windowHandler = new EventEmitter<void>();
 
     onWindowHandler():void {

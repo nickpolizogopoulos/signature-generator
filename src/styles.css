@@ -4,6 +4,9 @@ body {
 h1,h2,h3,h4,h5 {
     color: rgb(30, 47, 90);
 }
+a {
+    color: rgb(30, 47, 90);
+}
 .container-fluid {
     max-width: 1800px;
     padding: 0px 40px;
@@ -17,8 +20,14 @@ h1,h2,h3,h4,h5 {
 .inherit {
     color: inherit;
 }
+.text-underline {
+    text-decoration: underline;
+}
 .cursor-pointer {
     cursor: pointer;
+}
+.cursor-default {
+    cursor: default;
 }
 .mainblue {
     color: rgb(30, 47, 90);
@@ -51,28 +60,18 @@ h1,h2,h3,h4,h5 {
     color: rgb(30, 47, 90);
     background-color: transparent;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 3px 15px;
     border: 2px solid rgb(30, 47, 90);
-    cursor: pointer;
     text-decoration: none;
 }
 .button:hover {
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-.button:disabled {
-    cursor: default;
-    color: rgb(165, 165, 165);
-    border-color: rgb(165, 165, 165);
-    box-shadow: none;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 .copy-response {
-    border-radius: 5px;
+    background-color: transparent;
     padding: 3px 15px;
     border: 2px solid transparent;
     cursor: default;
-}
-.signatureBox {
-    box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.12);
 }
 .boxSection {
     background-color: rgb(255, 255, 255);
@@ -82,7 +81,10 @@ h1,h2,h3,h4,h5 {
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
     margin-bottom: 25px;
 }
-
+.signatureBox {
+    box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.12);
+    display: inline-block;
+}
 .expand-section {
     background-color: white;
     border-radius: 10px;
@@ -92,7 +94,6 @@ h1,h2,h3,h4,h5 {
     margin: 0px 0px 20px;
     user-select: none;
 }
-
 .helvetica {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 400;
@@ -110,7 +111,9 @@ h1,h2,h3,h4,h5 {
 .copperplate {
     font-family: Copperplate, Papyrus, fantasy;
 }
-
+.angularColor {
+    color: #c3002f;
+}
 ::-moz-selection { /* Code for Firefox */
     color: white;
     background: rgb(30, 47, 90);
@@ -119,10 +122,3 @@ h1,h2,h3,h4,h5 {
     color: white;
     background: rgb(30, 47, 90);
 }
-
-/* .redbg {
-    background-color: rgb(209, 88, 88);
-}
-.bluebg {
-    background-color: rgb(63, 100, 169);
-} */
