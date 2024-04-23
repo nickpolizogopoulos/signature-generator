@@ -10,12 +10,12 @@ import { AboutComponent } from './components/about.component';
 import { CompatibilityComponent } from './components/compatibility.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 
-const appTitle:string = 'Signature Generator Application';
+const appTitle:string = 'Signature Generator';
 
 const routes: Routes = [
   {
     path: '',
-    title: `${appTitle}`,
+    title: `${appTitle} - Home`,
     component: HomeComponent
   },
   {
