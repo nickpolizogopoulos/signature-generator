@@ -67,6 +67,12 @@ a {
 .button:hover {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
+.button:disabled {
+    cursor: default;
+    color: rgb(165, 165, 165);
+    border-color: rgb(165, 165, 165);
+    box-shadow: none;
+}
 .copy-response {
     background-color: transparent;
     padding: 3px 15px;
