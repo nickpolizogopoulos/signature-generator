@@ -50,7 +50,7 @@ import { Component } from "@angular/core";
                     <h4 class="mb-3">Recommendation</h4>
                     <div class="ms-3">
                         <p class="lead">
-                            I consider the "Firefox - Spark" combo the best for anything. I am using Mozilla Firefox and the signatures from this Applicaton work like a charm. 
+                            I consider the "Firefox - Spark" combo the best. I am using Mozilla Firefox and the signatures from this Applicaton work like a charm. 
                         </p>
                         <p class="lead">
                             Spark is a great email client, it doesn't complain about the signatures, it accepts the format and doesn't spoil anything like Outlook.
