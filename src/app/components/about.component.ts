@@ -12,7 +12,7 @@ import { Component } from "@angular/core";
                         <p class="lead">This is a remastered version of my very first 
                             <a class="angularColor nodecor" href="https://angular.io/" target="_blank">Angular</a>
                             Application, the "Super Signature Maker".</p>
-                        <p class="lead">The idea was to create email signatures for my colleagues at a fast pace and start getting familiar with Angular.</p>
+                        <p class="lead">The idea was to create email signatures for my colleagues at a fast pace and start getting familiar with the framework.</p>
                         <p class="lead">It solved the problem of copying, editing and customising every person's signature in code.</p>
                         <p class="lead">This Application <strong class="text-underline">does not</strong> collect personal data from users.</p>
                         <p class="lead">Make sure you check the <a routerLink="/compatibility">Compatibility</a> section.</p>

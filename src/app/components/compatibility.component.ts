@@ -26,7 +26,8 @@ import { Component } from "@angular/core";
                     <h4 class="mb-3">Browsers</h4>
                     <div class="ms-3">
                         <p class="lead">
-                            The signatures use rich text for the name and other details. Some browsers prevent the users from copying rich text due to security reasons.
+                            The signatures use rich text for the name and other details. 
+                            Some browsers prevent users from copying rich text due to security reasons.
                         </p>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ import { Component } from "@angular/core";
                             Unfortunately, Outlook's handling of email signatures can be inconsistent and may not display the signatures as intended. 
                         </p>
                         <p class="lead">
-                            Outlook and its issues are a hotly debated topic on the internet.
+                            Outlook and its issues with signatures is a hotly debated topic on the internet.
                         </p>
                     </div>
                 </div>
