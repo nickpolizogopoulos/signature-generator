@@ -22,7 +22,7 @@ import { Component } from '@angular/core';
 
         <br class="d-inline d-sm-none">
 
-        <a href="https://github.com/nickpolizogopoulos" class="nodecor" target="_blank">Nick Polizogopoulos</a>
+        <a href="https://nick-polizogopoulos.web.app/" class="nodecor" target="_blank">Nick Polizogopoulos</a>
       </div>
     </div>
   
