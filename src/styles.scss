@@ -1,61 +1,89 @@
+
 body {
     background-color: rgb(224, 229, 233);
 }
-h1,h2,h3,h4,h5 {
+
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: rgb(30, 47, 90);
 }
+
 a {
     color: rgb(30, 47, 90);
+    
+    &:hover {
+        color: rgb(245, 127, 33);
+    }
 }
+
 .container-fluid {
     max-width: 1800px;
     padding: 0px 40px;
 }
+
 .nodecor {
     text-decoration: none;
 }
+
 .noselect {
     user-select: none;
 }
+
 .inherit {
     color: inherit;
 }
+
 .text-underline {
     text-decoration: underline;
 }
+
 .cursor-pointer {
     cursor: pointer;
 }
+
 .cursor-default {
     cursor: default;
 }
+
 .mainblue {
     color: rgb(30, 47, 90);
 }
+
 .form-control {
     border-radius: 4px;
     margin-bottom: 8px;
+
+    &:focus {
+        box-shadow: none;
+        border: 1px solid rgb(30, 47, 90, 0.6);
+    }
 }
-.form-control:focus {
-    box-shadow: none;
-    border: 1px solid rgb(30, 47, 90, 0.6);
-}
+
 .form-check {
     margin-top: 10px;
+
+    label {
+        cursor: pointer;
+    }
 }
+
 .form-check-input {
     cursor: pointer;
+
+    &:focus {
+        box-shadow: none;
+        border: 1px solid rgb(30, 47, 90, 0.6);
+    }
 }
-.form-check-input:focus {
-    box-shadow: none;
-    border: 1px solid rgb(30, 47, 90, 0.6);
-}
-.form-check label {
-    cursor: pointer;
-}
+
+
 .clickToCopyBox {
     margin-top: 35px;
 }
+
 .button {
     color: rgb(30, 47, 90);
     background-color: transparent;
@@ -63,22 +91,26 @@ a {
     padding: 3px 15px;
     border: 2px solid rgb(30, 47, 90);
     text-decoration: none;
+
+    &:hover {
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+        cursor: default;
+        color: rgb(165, 165, 165);
+        border-color: rgb(165, 165, 165);
+        box-shadow: none;
+    }
 }
-.button:hover {
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-}
-.button:disabled {
-    cursor: default;
-    color: rgb(165, 165, 165);
-    border-color: rgb(165, 165, 165);
-    box-shadow: none;
-}
+
 .copy-response {
     background-color: transparent;
     padding: 3px 15px;
     border: 2px solid transparent;
     cursor: default;
 }
+
 .boxSection {
     background-color: rgb(255, 255, 255);
     padding: 20px;
@@ -87,10 +119,12 @@ a {
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
     margin-bottom: 25px;
 }
+
 .signatureBox {
     box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.12);
     display: inline-block;
 }
+
 .expand-section {
     background-color: white;
     border-radius: 10px;
@@ -100,30 +134,45 @@ a {
     margin: 0px 0px 20px;
     user-select: none;
 }
+
 .helvetica {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 400;
 }
+
 .monospace {
     font-family: monospace;
 }
+
 .didot {
     font-family: Didot;
 }
+
 .futura {
     font-family: Futura;
     font-weight: 100;
 }
+
 .copperplate {
     font-family: Copperplate, Papyrus, fantasy;
 }
+
 .angularColor {
+    
     color: #c3002f;
+    &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+        color: rgb(211, 16, 156);
+    }
 }
+
 ::-moz-selection { /* Code for Firefox */
     color: white;
     background: rgb(30, 47, 90);
 }
+
 ::selection {
     color: white;
     background: rgb(30, 47, 90);

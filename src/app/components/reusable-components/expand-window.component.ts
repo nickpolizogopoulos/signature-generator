@@ -32,10 +32,10 @@ import {
         .bi-chevron-down {
             color: grey;
             cursor: pointer;
-        }
 
-        .bi-chevron-down:hover {
-            color: black;
+            &:hover {
+                color: black;
+            }
         }
     
     `]

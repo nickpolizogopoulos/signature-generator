@@ -5,10 +5,10 @@ import {
   Routes 
 } from '@angular/router';
 
-import { HomeComponent } from './components/home.component';
-import { AboutComponent } from './components/about.component';
-import { CompatibilityComponent } from './components/compatibility.component';
-import { PageNotFoundComponent } from './components/page-not-found.component';
+import { HomeComponent } from './pages/home.component';
+import { AboutComponent } from './pages/about.component';
+import { CompatibilityComponent } from './pages/compatibility.component';
+import { PageNotFoundComponent } from './pages/page-not-found.component';
 
 const appTitle:string = 'Signature Generator';
 
@@ -39,14 +39,9 @@ const routes: Routes = [
   },
 ];
 
-const extraOptions:ExtraOptions = {
-    scrollPositionRestoration: 'enabled',
-    // anchorScrolling: 'enabled' //anchor scrolling is not needed anymore.
-};
-
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, extraOptions)
+    RouterModule.forRoot(routes)
   ],
   exports: [
     RouterModule

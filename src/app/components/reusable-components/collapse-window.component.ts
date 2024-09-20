@@ -29,10 +29,10 @@ import {
         .bi-chevron-up {
             color: grey;
             cursor: pointer;
-        }
-        
-        .bi-chevron-up:hover {
-            color: black;
+
+            &:hover {
+                color: black;
+            }
         }
     
     `]

@@ -3,7 +3,7 @@ import {
     ElementRef, 
     ViewChild 
 } from "@angular/core";
-import { SignatureUtilitiesComponent } from "../../shared/signature-utilities";
+import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities";
 
 @Component({
     selector: 'app-second-style',

@@ -120,6 +120,4 @@ import { Component } from "@angular/core";
 
     `]
 })
-export class PlaceholderSignatureComponent {
-
-}
+export class PlaceholderSignatureComponent {}
