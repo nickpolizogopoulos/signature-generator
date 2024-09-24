@@ -15,23 +15,23 @@ import { Component } from "@angular/core";
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse ms-3" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li>
                             <h2 routerLink="/" class="d-lg-none mt-3 cursor-pointer">Signature Generator</h2>
                         </li>
-                        <li class="nav-item ms-3">
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
                         </li>
-                        <li class="nav-item ms-3">
+                        <li class="nav-item">
                             <a class="nav-link" routerLink="/about">About</a>
                         </li>
-                        <li class="nav-item ms-3">
+                        <li class="nav-item">
                             <a class="nav-link" routerLink="/compatibility">Compatibility</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item ms-3">
+                        <li class="nav-item">
                             <a class="nav-link" href="https://github.com/nickpolizogopoulos/signature-generator" target="_blank">
                                 Source Code
                                 <span style="margin-left: 17px;" class="top-0 start-100 translate-middle badge rounded-pill bg-danger">free!</span>
@@ -47,6 +47,14 @@ styles: [`
 
     .navbar-toggler {
         border: 0px solid black;
+    }
+
+    .nav-item {
+        margin-left: 16px;
+        
+        @media screen and (max-width: 991px) {
+            margin: 0;
+        }
     }
 
     .navbar {
