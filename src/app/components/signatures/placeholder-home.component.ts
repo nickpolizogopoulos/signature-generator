@@ -39,6 +39,7 @@ import { Component } from "@angular/core";
             box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.12);
             cursor: wait;
         }
+        
         .skeleton .square {
             height: 80px;
             border-radius: 5px;
@@ -48,6 +49,7 @@ import { Component } from "@angular/core";
             background-size: 800px 100px;
             animation: wave-squares 2s infinite ease-out;
         }
+
         .skeleton .line {
             height: 12px;
             margin-bottom:6px;
@@ -58,49 +60,64 @@ import { Component } from "@angular/core";
             background-size: 800px 100px;
             animation: wave-lines 2s infinite ease-out;
         }
+
         .skeleton-right{
             flex:1;
         }
+
         .skeleton-left{
             flex:2;
             padding-right:15px;
         }
+
         .flex1{
             flex: 1;
         }
+
         .flex2{
             flex: 2;
         }
+
         .skeleton .line:last-child{
             margin-bottom: 0;
         }
+
         .name-surname {
             margin-left: 1px;
         }
-        .h8{
+
+        .h8 {
             height: 8px !important;
         }
-        .h17{
+
+        .h17 {
             height: 17px !important;
         }
-        .w30{
+
+        .w30 {
             width:30% !important;
         }
-        .w40{
+
+        .w40 {
             width:40% !important;
         }
-        .w50{
+
+        .w50 {
             width:50% !important;
         }
-        .w75{
+
+        .w75 {
             width: 75% !important
         }
-        .w100{
+
+        .w100 {
             width: 100% !important
         }
-        .m10{
+
+        .m10 {
             margin-bottom: 10px !important;
         }
+
         @keyframes wave-lines {
             0% {
                 background-position: -468px 0;
@@ -109,6 +126,7 @@ import { Component } from "@angular/core";
                 background-position: 468px 0;
             }
         }
+
         @keyframes wave-squares {
             0% {
                 background-position: -468px 0;

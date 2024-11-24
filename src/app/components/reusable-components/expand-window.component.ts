@@ -5,7 +5,6 @@ import {
     Output 
 } from "@angular/core";
 
-
 @Component({
     selector: 'app-expand-window',
     template: `
@@ -42,10 +41,10 @@ import {
 })
 export class ExpandWindowComponent {
 
-    @Input() text!:string;
+    @Input() text!: string;
     @Output() windowHandler = new EventEmitter<void>();
 
-    onWindowHandler():void {
+    onWindowHandler(): void {
         this.windowHandler.emit();
     }
     

@@ -5,7 +5,6 @@ import {
     Output 
 } from "@angular/core";
 
-
 @Component({
     selector: 'app-collapse-window',
     template: `
@@ -39,10 +38,10 @@ import {
 })
 export class CollapseWindowComponent {
 
-    @Input() title!:string;
+    @Input() title!: string;
     @Output() windowHandler = new EventEmitter<void>();
 
-    onWindowHandler():void {
+    onWindowHandler(): void {
         this.windowHandler.emit();
     }
 

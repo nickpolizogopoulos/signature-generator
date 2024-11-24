@@ -3,9 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 import { HomeComponent } from './pages/home.component';
 import { AboutComponent } from './pages/about.component';
@@ -22,24 +21,29 @@ import { FirstStyleComponent } from './components/signatures/first-style.compone
 import { SecondStyleComponent } from './components/signatures/second-style.component';
 import { ThirdStyleComponent } from './components/signatures/third-style.component';
 import { FourthStyleComponent } from './components/signatures/fourth-style.component';
-import { PlaceholderSignatureComponent } from './components/signatures/placeholder-home.component';
 
+import { PlaceholderSignatureComponent } from './components/signatures/placeholder-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
     HomeComponent,
     AboutComponent,
     CompatibilityComponent,
     PageNotFoundComponent,
+
     NavbarComponent,
     FooterComponent,
+
     ExpandWindowComponent,
     CollapseWindowComponent,
+
     FirstStyleComponent,
     SecondStyleComponent,
     ThirdStyleComponent,
     FourthStyleComponent,
+
     PlaceholderSignatureComponent
   ],
   imports: [
@@ -51,4 +55,4 @@ import { PlaceholderSignatureComponent } from './components/signatures/placehold
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

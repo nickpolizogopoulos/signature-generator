@@ -43,28 +43,28 @@ import { Component } from "@angular/core";
         </nav>
 
     `,
-styles: [`
+    styles: [`
 
-    .navbar-toggler {
-        border: 0px solid black;
-    }
-
-    .nav-item {
-        margin-left: 16px;
-        
-        @media screen and (max-width: 991px) {
-            margin: 0;
+        .navbar-toggler {
+            border: 0px solid black;
         }
-    }
 
-    .navbar {
-        background-color: white;
-        margin: 25px 0px 0px 0px;
-        border-radius: 10px;
-        border: 1px solid rgba(21, 33, 64, 0.168);
-        box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
-    }
+        .nav-item {
+            margin-left: 16px;
+            
+            @media screen and (max-width: 991px) {
+                margin: 0;
+            }
+        }
 
-`]
+        .navbar {
+            background-color: white;
+            margin: 25px 0px 0px 0px;
+            border-radius: 10px;
+            border: 1px solid rgba(21, 33, 64, 0.168);
+            box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
+        }
+
+    `]
 })
 export class NavbarComponent {}

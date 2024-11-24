@@ -619,72 +619,72 @@ import { Component } from "@angular/core";
 export class HomeComponent {
 
     //* Signature Information
-    name:string = 'Name';
-    surname:string = 'Surname';
-    title:string = 'Position title';
-    phone:string = '+00 0000 000 000';
-    email:string = 'email@email.com';
-    location:string = 'Street, City, Country';
-    logoUrl:string = '../../assets/signature-generator-logo.png';
-    withoutLogo:boolean = false;
+    name: string = 'Name';
+    surname: string = 'Surname';
+    title: string = 'Position title';
+    phone: string = '+00 0000 000 000';
+    email: string = 'email@email.com';
+    location: string = 'Street, City, Country';
+    logoUrl: string = '../../assets/signature-generator-logo.png';
+    withoutLogo: boolean = false;
 
     //* Social Media
-    website:boolean = false;
-    facebook:boolean = false;
-    instagram:boolean = false;
-    linkedin:boolean = false;
-    github:boolean = false;
-    twitter:boolean = false;
-    reddit:boolean = false;
-    threads:boolean = false;
-    linktree:boolean = false;
+    website: boolean = false;
+    facebook: boolean = false;
+    instagram: boolean = false;
+    linkedin: boolean = false;
+    github: boolean = false;
+    twitter: boolean = false;
+    reddit: boolean = false;
+    threads: boolean = false;
+    linktree: boolean = false;
 
     //* Social Media Links
-    websiteLink?:string;
-    facebookLink?:string;
-    instagramLink?:string;
-    linkedinLink?:string;
-    githubLink?:string;
-    twitterLink?:string;
-    redditLink?:string;
-    threadsLink?:string;
-    linktreeLink?:string;
+    websiteLink?: string;
+    facebookLink?: string;
+    instagramLink?: string;
+    linkedinLink?: string;
+    githubLink?: string;
+    twitterLink?: string;
+    redditLink?: string;
+    threadsLink?: string;
+    linktreeLink?: string;
 
     //* Signature Preferences
-    logoWidth:number = 125;
-    lineWidth:number = 30;
-    socialIconSpace:string = '7';
+    logoWidth: number = 125;
+    lineWidth: number = 30;
+    socialIconSpace: string = '7';
 
     //* Typography
-    boldName:boolean = false;
-    boldTitle:boolean = false;
-    underlineName:boolean = false;
-    underlineTitle:boolean = false;
-    capitaliseNameSurname:boolean = false;
-    capitaliseTitle:boolean = false;
-    nameSurnameFontSize:number = 19;
+    boldName: boolean = false;
+    boldTitle: boolean = false;
+    underlineName: boolean = false;
+    underlineTitle: boolean = false;
+    capitaliseNameSurname: boolean = false;
+    capitaliseTitle: boolean = false;
+    nameSurnameFontSize: number = 19;
     titleFontSize:number = 14;
-    informationFontSize:number = 14;
-    lineSeparator:boolean = true;
-    fontFamily:string = 'helvetica';
+    informationFontSize: number = 14;
+    lineSeparator: boolean = true;
+    fontFamily: string = 'helvetica';
     
     //* Colours
-    textAColour:string = '#000000';
-    textBColour:string = '#000000';
+    textAColour: string = '#000000';
+    textBColour: string = '#000000';
 
     //* Settings Windows
-    informationWindow:boolean = true;
-    socialMediaWindow:boolean = true;
-    preferencesWindow:boolean = true;
-    typographyWindow:boolean = true;
-    coloursWindow:boolean = true;
+    informationWindow: boolean = true;
+    socialMediaWindow: boolean = true;
+    preferencesWindow: boolean = true;
+    typographyWindow: boolean = true;
+    coloursWindow: boolean = true;
 
     //* Copying Spinners
-    spinnerLoading:boolean = false;
-    copyResponse:boolean = false;
+    spinnerLoading: boolean = false;
+    copyResponse: boolean = false;
 
 
-    onUpdateName( event:Event ):void {
+    onUpdateName( event: Event ): void {
         this.name = (<HTMLInputElement>event.target).value;
     }
 
@@ -712,7 +712,7 @@ export class HomeComponent {
         this.logoUrl = (<HTMLInputElement>event.target).value;
     }
 
-    uncheckAllSocial():void {
+    uncheckAllSocial(): void {
         this.website = false;
         this.facebook = false;
         this.instagram = false;
@@ -724,7 +724,7 @@ export class HomeComponent {
         this.linktree = false;
     }
 
-    checkAllSocial():void {
+    checkAllSocial(): void {
         this.website = true;
         this.facebook = true;
         this.instagram = true;
@@ -736,7 +736,7 @@ export class HomeComponent {
         this.linktree = true;
     }
     
-    onWindowHandle( id:string ):void {
+    onWindowHandle( id: string ): void {
         switch(id) {
             case 'information': { 
                 this.informationWindow = !this.informationWindow;

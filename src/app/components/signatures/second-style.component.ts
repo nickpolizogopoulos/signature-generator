@@ -3,6 +3,7 @@ import {
     ElementRef, 
     ViewChild 
 } from "@angular/core";
+
 import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities";
 
 @Component({
@@ -106,9 +107,9 @@ import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities
 })
 export class SecondStyleComponent extends SignatureUtilitiesComponent {
 
-    @ViewChild('secondSignature', { static: false }) secondSignature!:ElementRef;
+    @ViewChild('secondSignature', { static: false }) secondSignature!: ElementRef;
 
-    copySignature():void {
+    copySignature(): void {
 
         this.spinnerOn();
 

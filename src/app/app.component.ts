@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
       <app-footer></app-footer>
     </div>
   
-  
   `
 })
 export class AppComponent {}

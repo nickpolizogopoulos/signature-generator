@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { 
-  ExtraOptions, 
   RouterModule, 
   Routes 
 } from '@angular/router';
@@ -10,7 +9,7 @@ import { AboutComponent } from './pages/about.component';
 import { CompatibilityComponent } from './pages/compatibility.component';
 import { PageNotFoundComponent } from './pages/page-not-found.component';
 
-const appTitle:string = 'Signature Generator';
+const appTitle: string = 'Signature Generator';
 
 const routes: Routes = [
   {
@@ -47,4 +46,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

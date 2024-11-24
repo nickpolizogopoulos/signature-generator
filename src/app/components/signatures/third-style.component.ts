@@ -1,4 +1,9 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import {
+    Component,
+    ElementRef,
+    ViewChild
+} from "@angular/core";
+
 import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities";
 
 @Component({
@@ -104,9 +109,9 @@ import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities
 })
 export class ThirdStyleComponent extends SignatureUtilitiesComponent {
 
-    @ViewChild('thirdSignature', { static: false }) thirdSignature!:ElementRef;
+    @ViewChild('thirdSignature', { static: false }) thirdSignature!: ElementRef;
 
-    copySignature():void {
+    copySignature(): void {
 
         this.spinnerOn();
 

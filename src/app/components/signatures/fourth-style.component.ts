@@ -3,6 +3,7 @@ import {
     ElementRef, 
     ViewChild 
 } from "@angular/core";
+
 import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities";
 
 @Component({
@@ -110,7 +111,7 @@ import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities
         <div class="clickToCopyBox mb-4">
             <button *ngIf="!copyResponse" (click)="copySignature()" class="button">
                 <div *ngIf="spinnerLoading" class="spinner-border spinner-border-sm me-1" role="status"></div>
-                {{spinnerLoading ? 'Copying...' : 'Copy'}}
+                {{ spinnerLoading ? 'Copying...' : 'Copy' }}
             </button>
             <button *ngIf="copyResponse" class="copy-response text-success" disabled>Done!</button>
         </div>
@@ -119,9 +120,9 @@ import { SignatureUtilitiesComponent } from "../../utilities/signature-utilities
 })
 export class FourthStyleComponent extends SignatureUtilitiesComponent {
 
-    @ViewChild('fourthSignature', { static: false }) fourthSignature!:ElementRef;
+    @ViewChild('fourthSignature', { static: false }) fourthSignature!: ElementRef;
 
-    copySignature():void {
+    copySignature(): void {
 
         this.spinnerOn();
 

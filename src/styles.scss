@@ -158,7 +158,6 @@ a {
 }
 
 .angularColor {
-    
     color: #c3002f;
     &:hover {
         text-decoration: underline;
@@ -168,7 +167,8 @@ a {
     }
 }
 
-::-moz-selection { /* Code for Firefox */
+//* Code for Firefox
+::-moz-selection { 
     color: white;
     background: rgb(30, 47, 90);
 }

@@ -71,15 +71,22 @@ export class SignatureUtilitiesComponent {
     spinnerOffTime:number = 2300;
 
     passSelectedFont():string {
-        return this.fontFamily === 'helvetica' ? 'helvetica'
-        : this.fontFamily === 'monospace' ? 'monospace'
-        : this.fontFamily === 'didot' ? 'didot'
-        : this.fontFamily === 'futura' ? 'futura'
-        : this.fontFamily === 'copperplate' ? 'copperplate' 
-        : ''
+        return (
+              this.fontFamily === 'helvetica'
+            ? 'helvetica'
+            : this.fontFamily === 'monospace'
+            ? 'monospace'
+            : this.fontFamily === 'didot'
+            ? 'didot'
+            : this.fontFamily === 'futura'
+            ? 'futura'
+            : this.fontFamily === 'copperplate'
+            ? 'copperplate' 
+            : ''
+        );
     }
 
-    copySignatureStyle( signature:any ):void {
+    copySignatureStyle( signature: any ):void {
         const content = signature.nativeElement as HTMLElement;
 
         // range object to select the content
@@ -104,18 +111,22 @@ export class SignatureUtilitiesComponent {
         selection!.removeAllRanges();
     } 
 
-    spinnerOn():void {
+    spinnerOn(): void {
         this.spinnerLoading = true;
-        setTimeout(() => {
-            this.copyResponse = true;
-        }, this.spinnerOnTime);
+        setTimeout(() =>
+            this.copyResponse = true,
+            this.spinnerOnTime
+        );
     }
 
-    spinnerOff():void {
-        setTimeout(() => {
-            this.spinnerLoading = false;
-            this.copyResponse = false;
-        }, this.spinnerOffTime);
+    spinnerOff(): void {
+        setTimeout(() =>
+            {
+                this.spinnerLoading = false;
+                this.copyResponse = false;
+            },
+            this.spinnerOffTime
+        );
     }
     
 }
