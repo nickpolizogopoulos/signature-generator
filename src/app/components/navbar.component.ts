@@ -21,13 +21,13 @@ import { Component } from "@angular/core";
                             <h2 routerLink="/" class="d-lg-none mt-3 cursor-pointer">Signature Generator</h2>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+                            <a class="nav-link" routerLinkActive="active" routerLink="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/about">About</a>
+                            <a class="nav-link" routerLinkActive="active" routerLink="/about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/compatibility">Compatibility</a>
+                            <a class="nav-link" routerLinkActive="active" routerLink="/compatibility">Compatibility</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -64,6 +64,18 @@ import { Component } from "@angular/core";
             border: 1px solid rgba(21, 33, 64, 0.168);
             box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.113);
         }
+
+        .nav-item,
+        a {
+            &:hover {
+                color: rgb(245, 127, 33);
+            }
+        }
+        
+        .active {
+            color: rgb(48, 74, 138) !important;
+        }
+
 
     `]
 })
