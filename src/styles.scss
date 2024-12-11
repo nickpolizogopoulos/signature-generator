@@ -3,13 +3,11 @@ body {
     background-color: rgb(224, 229, 233);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-    color: rgb(30, 47, 90);
-}
+@for $i from 1 through 3 {
+    h#{$i} {
+        color: rgb(30, 47, 90);
+    }
+  }
 
 a {
     color: rgb(30, 47, 90);
@@ -21,7 +19,16 @@ a {
 
 .container-fluid {
     max-width: 1800px;
-    padding: 0px 40px;
+    padding: 0 20px;
+    transition: all .1s linear;
+    
+    @media screen and (max-width: 500px) {
+        padding: 0px 10px;
+    }
+    
+    @media screen and (min-width: 700px) {
+        padding: 0 40px;
+    }
 }
 
 .nodecor {

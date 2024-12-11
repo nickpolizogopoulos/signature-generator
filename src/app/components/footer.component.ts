@@ -28,6 +28,9 @@ import { Component } from '@angular/core';
     </div>
   
   `,
+  host: {
+    class: 'noselect'
+  },
   styles: [`
   
     .footer-logo {

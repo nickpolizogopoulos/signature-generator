@@ -4,13 +4,13 @@ import { Component } from "@angular/core";
     selector: 'app-navbar',
     template: `
     
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-xl">
             <div class="container-fluid">
                 <a class="navbar-brand" routerLink="/">
                     <img width="110" height="auto" src="../../assets/signature-generator-logo.png" alt="logo">
                 </a>
                 <a class="navbar-brand" routerLink="/">
-                    <h2 class="d-none d-lg-inline">Signature Generator</h2>
+                    <h2 class="d-none d-xl-inline">Signature Generator</h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" >
                     <span class="navbar-toggler-icon"></span>
@@ -43,6 +43,9 @@ import { Component } from "@angular/core";
         </nav>
 
     `,
+    host: {
+        class: 'noselect'
+    },
     styles: [`
 
         .navbar-toggler {
