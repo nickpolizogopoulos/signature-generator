@@ -18,7 +18,7 @@ import { Component } from "@angular/core";
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li>
-                            <h2 routerLink="/" class="d-lg-none mt-3 cursor-pointer">Signature Generator</h2>
+                            <h2 routerLink="/" class="d-xl-none mt-3 cursor-pointer">Signature Generator</h2>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" routerLinkActive="active" routerLink="/">Home</a>
